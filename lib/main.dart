@@ -1,5 +1,7 @@
-import 'package:alaska_barber/screens/splesh_screen/splesh_screen.dart';
+
 import 'package:flutter/material.dart';
+
+import 'screens/splash_screen/splesh_screen.dart';
 
 void main() {
   runApp(const MyApp());
