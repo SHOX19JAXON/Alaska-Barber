@@ -1,3 +1,4 @@
+import 'package:alaska_barber/data/models/barbers_model.dart';
 import 'package:alaska_barber/screens/barber_work/widget/all_hair_styles_widget.dart';
 import 'package:alaska_barber/screens/barber_work/widget/product_list_widget.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
@@ -7,7 +8,9 @@ import 'package:video_player/video_player.dart';
 import '../barber_work_detaile/barber_work_detaile.dart';
 
 class BarberWork extends StatefulWidget {
-  const BarberWork({super.key});
+  const BarberWork({super.key, required this.userModel});
+
+  final UserModel userModel;
 
   @override
   State<BarberWork> createState() => _BarberWorkState();
@@ -15,7 +18,8 @@ class BarberWork extends StatefulWidget {
 
 class _BarberWorkState extends State<BarberWork> {
   int selectedIndex = 0; // Dastlab Foto ko'rsatiladi
-  final PageController _pageController = PageController(initialPage: 0); // PageView controller
+  final PageController _pageController =
+      PageController(initialPage: 0); // PageView controller
   late VideoPlayerController _controller;
 
   @override
@@ -28,12 +32,14 @@ class _BarberWorkState extends State<BarberWork> {
         setState(() {});
       });
   }
+
   @override
   void dispose() {
     super.dispose();
     // Video player resurslarini tozalash
     _controller.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +69,7 @@ class _BarberWorkState extends State<BarberWork> {
                 onPressed: () {
                   setState(() {
                     selectedIndex = 0; // Foto tanlandi
-                    _pageController.jumpToPage(0); // Foto sahifasiga o'tish
+                    _pageController.jumpToPage(0);
                   });
                 },
                 style: ElevatedButton.styleFrom(
@@ -77,7 +83,7 @@ class _BarberWorkState extends State<BarberWork> {
                     ),
                   ),
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                 ),
                 child: const Text(
                   "Foto",
@@ -87,9 +93,10 @@ class _BarberWorkState extends State<BarberWork> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    selectedIndex = 1; // Video tanlandi
-                    _pageController.jumpToPage(1); // Video sahifasiga o'tish
+                    selectedIndex = 1;
+                    _pageController.jumpToPage(1);
                   });
+                  //996848581
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: selectedIndex == 1
@@ -102,7 +109,7 @@ class _BarberWorkState extends State<BarberWork> {
                     ),
                   ),
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                 ),
                 child: const Text(
                   "Video",
@@ -118,7 +125,7 @@ class _BarberWorkState extends State<BarberWork> {
               controller: _pageController,
               onPageChanged: (index) {
                 setState(() {
-                  selectedIndex = index; // Sahifa o'zgarganda index yangilanadi
+                  selectedIndex = index;
                 });
               },
               children: [
@@ -126,33 +133,43 @@ class _BarberWorkState extends State<BarberWork> {
                 SingleChildScrollView(
                   child: AllHairStylesWidget(
                     onTap: () {
-                       Navigator.push(context,MaterialPageRoute(builder: (context){
-                         return BarberWorkDetail();
-                       }));
+                      print("--------------------salom");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return BarberWorkDetail(
+                              userModel: widget.userModel,
+
+                            );
+                          },
+                        ),
+                      );
                     },
+                    userModel: widget.userModel,
                   ),
                 ),
                 // 2-chi sahifa: Video uchun
-                 SingleChildScrollView(
-                   child: Column(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                       // Icon(
-                       //   Icons.video_library,
-                       //   size: 100,
-                       //   color: Colors.white,
-                       // ),
-                       // SizedBox(height: 20),
-                       // Text(
-                       //   "Bu yerda videolar chiqadi",
-                       //   style: TextStyle(color: Colors.white, fontSize: 18),
-                       // ),
-                       WidgetProductList(onTap: () {  },)
-
-
-                     ],
-                   ),
-                 ),
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Icon(
+                      //   Icons.video_library,
+                      //   size: 100,
+                      //   color: Colors.white,
+                      // ),
+                      // SizedBox(height: 20),
+                      // Text(
+                      //   "Bu yerda videolar chiqadi",
+                      //   style: TextStyle(color: Colors.white, fontSize: 18),
+                      // ),
+                      WidgetProductList(
+                        onTap: () {},
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

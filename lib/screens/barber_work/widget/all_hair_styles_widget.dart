@@ -1,12 +1,14 @@
+import 'package:alaska_barber/data/models/barbers_model.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AllHairStylesWidget extends StatefulWidget {
-  const AllHairStylesWidget({super.key, required this.onTap});
+  const AllHairStylesWidget(
+      {super.key, required this.onTap, required this.userModel});
 
-  // final List<Product> product;
+  final UserModel userModel;
   final VoidCallback onTap;
 
   @override
@@ -25,12 +27,15 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 15.0,
-                  mainAxisSpacing: 15,
-                  childAspectRatio: 0.7),
-              itemCount: 10,
+                crossAxisCount: 2,
+                crossAxisSpacing: 15.0,
+                mainAxisSpacing: 15,
+                childAspectRatio: 0.7,
+              ),
+              itemCount: widget.userModel.fotos.length, // Use fotos.length
               itemBuilder: (context, index) {
+                final foto = widget.userModel.fotos[index];
+
                 return InkWell(
                   borderRadius: BorderRadius.circular(25),
                   onTap: widget.onTap,
@@ -40,7 +45,7 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(25),
                         child: Image.asset(
-                          soch[index],
+                          foto.image.isNotEmpty ? foto.image[0] : AppImages.barber, // Handle empty image list
                           fit: BoxFit.cover,
                           height: 150,
                           width: double.infinity,
@@ -49,10 +54,10 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                       const SizedBox(
                         height: 3,
                       ),
-                      const Text(
-                        "polBOKS555555",
-                        style: TextStyle(
-                          color:  AppColors.cAFECFE,
+                      Text(
+                        foto.name,
+                        style: const TextStyle(
+                          color: AppColors.cAFECFE,
                           fontSize: 18,
                         ),
                       ),
@@ -62,22 +67,20 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                       Row(
                         children: [
                           RichText(
-                              text: const TextSpan(children: [
-                            TextSpan(
-                              text: " 60000 ",
-                              style: TextStyle(
-                                color:  AppColors.cAFECFE,
-                                fontSize: 14,
-                              ),
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "${foto.likes} ",
+                                  style: const TextStyle(
+                                    color: AppColors.cAFECFE,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
                             ),
-                            TextSpan(
-                              text: "SUM",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.yellow,
-                              ),
-                            )
-                          ]))
+                          ),
+                          SizedBox(width: 5,),
+                          Icon(Icons.favorite, color: Colors.red,) // Updated icon
                         ],
                       ),
                       const SizedBox(
@@ -85,9 +88,10 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                       ),
                       Row(
                         children: [
-                          Text("3.5",style: TextStyle(
-                              color:  AppColors.cAFECFE
-                          ),),
+                          const Text(
+                            "3.5",
+                            style: TextStyle(color: AppColors.cAFECFE),
+                          ),
                           const SizedBox(
                             width: 2,
                           ),
@@ -107,9 +111,10 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                           const SizedBox(
                             width: 2,
                           ),
-                          Text("(3.k)",style: TextStyle(
-                            color:  AppColors.cAFECFE
-                          ),),
+                          const Text(
+                            "(3.k)",
+                            style: TextStyle(color: AppColors.cAFECFE),
+                          ),
                         ],
                       ),
                     ],
@@ -123,6 +128,7 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
     );
   }
 }
+
 
 List<String> soch = [
   AppImages.soch1,

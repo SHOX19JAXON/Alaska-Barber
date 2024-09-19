@@ -1,3 +1,4 @@
+import 'package:alaska_barber/data/models/barbers_model.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -5,7 +6,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../utils/colors/app_colors.dart';
 
 class BarberWorkDetail extends StatefulWidget {
-  const BarberWorkDetail({super.key});
+  const BarberWorkDetail({super.key, required this.userModel});
+  final UserModel userModel;
 
   @override
   State<BarberWorkDetail> createState() => _BarberWorkDetailState();
@@ -25,23 +27,26 @@ class _BarberWorkDetailState extends State<BarberWorkDetail> {
       body: Column(
         children: [
           CarouselSlider.builder(
-            itemCount: soch2.length,
+            itemCount: widget.userModel.fotos[0].image.length,
             itemBuilder: (context, index, realIndex) {
+              // Access the correct image list for the first barber work detail
+              final imagePath = widget.userModel.fotos[0].image[index];
+              print("Current Image Path: $imagePath");
               return ClipRRect(
                 borderRadius: BorderRadius.circular(20), // Rasmlar uchun radius
                 child: Image.asset(
-                  soch2[index],
+                  imagePath,
                   fit: BoxFit.cover,
                   width: double.infinity,
                 ),
               );
             },
             options: CarouselOptions(
-              height: 450, // Slayder balandligi
-              enlargeCenterPage: true, // Markazdagi rasm kattalashishi
+              height: 450,
+              enlargeCenterPage: true,
               onPageChanged: (index, reason) {
                 setState(() {
-                  currentIndex = index; // Rasmni o'zgartirish
+                  currentIndex = index;
                 });
               },
             ),
@@ -49,7 +54,7 @@ class _BarberWorkDetailState extends State<BarberWorkDetail> {
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(soch2.length, (index) {
+            children: List.generate(widget.userModel.fotos[0].image.length, (index) {
               return Container(
                 margin: const EdgeInsets.symmetric(horizontal: 4),
                 width: 8,
@@ -69,6 +74,7 @@ class _BarberWorkDetailState extends State<BarberWorkDetail> {
     );
   }
 }
+
 
 List<String> soch2 = [
   AppImages.soch1,

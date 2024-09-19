@@ -1,14 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:alaska_barber/utils/styles/app_text_style.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import '../barber_work/barber_works.dart';
 import '../barbers/barbers.dart';
+import 'package:alaska_barber/data/models/barbers_model.dart';
 
 class BarberInfo extends StatefulWidget {
-  const BarberInfo({super.key});
+  final UserModel userModel;
+
+
+  const BarberInfo({super.key, required this.userModel, });
 
   @override
   State<BarberInfo> createState() => _BarberInfoState();
@@ -17,6 +20,9 @@ class BarberInfo extends StatefulWidget {
 class _BarberInfoState extends State<BarberInfo> {
   @override
   Widget build(BuildContext context) {
+    // Use id as an index
+    final barber = widget.userModel;
+
     return Scaffold(
       backgroundColor: AppColors.c1B2B2B,
       appBar: AppBar(
@@ -30,9 +36,9 @@ class _BarberInfoState extends State<BarberInfo> {
             color: AppColors.cAFECFE,
           ),
         ),
-        title: const Text(
-          "Palonchayev Pistoncha",
-          style: TextStyle(color: AppColors.cAFECFE),
+        title: Text(
+          "${widget.userModel.name} ${widget.userModel.surname}",
+          style: const TextStyle(color: AppColors.cAFECFE),
         ),
       ),
       body: Padding(
@@ -41,7 +47,6 @@ class _BarberInfoState extends State<BarberInfo> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -49,24 +54,21 @@ class _BarberInfoState extends State<BarberInfo> {
               ),
               width: double.infinity,
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
                 child: Column(
                   children: [
                     ClipOval(
                       child: Image.asset(
-                        AppImages.person1,
+                        widget.userModel.image,
                         width: 150,
                         height: 150,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -87,7 +89,6 @@ class _BarberInfoState extends State<BarberInfo> {
                               "Tajribasi",
                               style: TextStyle(color: AppColors.cAFECFE),
                             ),
-
                             SizedBox(height: 6),
                             Text(
                               "Telifon",
@@ -105,45 +106,40 @@ class _BarberInfoState extends State<BarberInfo> {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          width: 20,
-                        ),
+                        const SizedBox(width: 20),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 15),
-                            const SizedBox(
-                              child: Text(
-                                "Salomov Alisher",
-                                style: TextStyle(color: AppColors.cAFECFE),
-                              ),
+                            Text(
+                              "${widget.userModel.name} ${widget.userModel.surname}",
+                              style: const TextStyle(color: AppColors.cAFECFE),
                             ),
                             const SizedBox(height: 6),
-                            const Text(
-                              "28 shoda",
-                              style: TextStyle(color: AppColors.cAFECFE),
+                            Text(
+                              "${widget.userModel.age} yoshda",
+                              style: const TextStyle(color: AppColors.cAFECFE),
                             ),
                             const SizedBox(height: 6),
-                            const Text(
-                              "3 yillik tajribaga ega",
-                              style: TextStyle(color: AppColors.cAFECFE),
-                            ),
-
-                            const SizedBox(height: 6),
-                            const Text(
-                              "998915274142",
-                              style: TextStyle(color: AppColors.cAFECFE),
+                            Text(
+                              "${widget.userModel.workExperience} yillik tajribaga ega",
+                              style: const TextStyle(color: AppColors.cAFECFE),
                             ),
                             const SizedBox(height: 6),
-                            const Text(
-                              "mshoxjaxon19@gmail.com",
-                              style: TextStyle(color: AppColors.cAFECFE),
+                            Text(
+                              widget.userModel.phoneNumber,
+                              style: const TextStyle(color: AppColors.cAFECFE),
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              widget.userModel.email,
+                              style: const TextStyle(color: AppColors.cAFECFE),
                             ),
                             const SizedBox(height: 6),
                             RatingBar.builder(
                               ignoreGestures: true,
                               itemSize: 18,
-                              initialRating: 1,
+                              initialRating: widget.userModel.skills.toDouble(),
                               minRating: 1,
                               direction: Axis.horizontal,
                               allowHalfRating: true,
@@ -156,43 +152,33 @@ class _BarberInfoState extends State<BarberInfo> {
                             ),
                           ],
                         ),
-                        Spacer(),
+                        const Spacer(),
                       ],
                     ),
                   ],
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Expanded(
               child: const Text(
-                "This example shows a custom implementation of selection in list and grid views. Use the button in the top right (possibly hidden under the DEBUG banner) to toggle between ListView and GridView. Long press any ListTile or GridTile to enable selection mode.Memory updatedXatoni togrilash uchun GridView widget-i uchun qoshimcha qismlar kerak. Hozirgi kodda GridView ni Column ichiga joylashtirgansiz, lekin GridView ozi cheksiz balandlik talab qiladi, shuning uchun Expanded yoki SizedBox kabi muvofiqlashtiruvchi qoshimchalar kerak.",
+                "This example shows a custom implementation...",
                 style: TextStyle(color: AppColors.cAFECFE, fontSize: 16),
               ),
             ),
-
-
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) {
-                        return BarberWork();
-                      }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return BarberWork(userModel: widget.userModel,);
+                  }));
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   backgroundColor: AppColors.cAFECFE.withOpacity(0.5),
                   shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
                 child: Text(
@@ -204,7 +190,7 @@ class _BarberInfoState extends State<BarberInfo> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10),
           ],
         ),
       ),

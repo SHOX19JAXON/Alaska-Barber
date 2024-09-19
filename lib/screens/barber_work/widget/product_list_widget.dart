@@ -44,13 +44,13 @@ class _WidgetProductListState extends State<WidgetProductList> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "maykil jeksin stili",
                               style: TextStyle(fontSize: 18),
                             ),
-                            SizedBox(height: 6),
-                            Text("25\$"),
-                            SizedBox(height: 6),
+                            const SizedBox(height: 6),
+                            const Text("25\$"),
+                            const SizedBox(height: 6),
                             Row(
                               children: [
                                 RatingBar.builder(
@@ -68,21 +68,21 @@ class _WidgetProductListState extends State<WidgetProductList> {
                                     print(rating);
                                   },
                                 ),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 const Text(
                                   "(5.k)",
                                   style: TextStyle(color: Colors.orange),
                                 ),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
 
                                 SizedBox(width: 6),
 
                               ],
                             ),
-                            SizedBox(height: 6),
-                            Text(
+                            const SizedBox(height: 6),
+                            const Text(
                               "Zo'r",
-                              style: const TextStyle(color: Colors.green),
+                              style: TextStyle(color: Colors.green),
                             ),
                           ],
                         ),
@@ -93,7 +93,7 @@ class _WidgetProductListState extends State<WidgetProductList> {
               ),
             );
           }),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );
