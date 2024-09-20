@@ -1,7 +1,8 @@
 
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:alaska_barber/screens/splash_screen/splesh_screen.dart';
+import 'package:alaska_barber/utils/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-
-import 'screens/splash_screen/splesh_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,18 +11,20 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return AdaptiveTheme(
+      light: AppTheme.lightTheme, // Yengil mavzu (Light Theme)
+      dark: AppTheme.darkTheme, // Qorong'u mavzu (Dark Theme)
+      initial: AdaptiveThemeMode.system, // Qurilma sozlamasiga moslash
+      builder: (theme, darkTheme) => MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: theme, // Ilova uchun yengil mavzu (Light Theme)
+        darkTheme: darkTheme, // Ilova uchun qorong'u mavzu (Dark Theme)
+        themeMode: ThemeMode.system, // Qurilma rejimiga qarab
+        home: const SplashScreen(), // Asosiy ekran
       ),
-      home: const SplashScreen(),
     );
   }
 
