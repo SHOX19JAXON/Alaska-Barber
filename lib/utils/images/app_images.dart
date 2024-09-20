@@ -19,6 +19,7 @@ class AppImages {
   static const String soch14 = "assets/images/soch14.png";
   static const String soch15 = "assets/images/soch15.png";
   static const String soch16 = "assets/images/soch16.png";
+  static const String barberImage = "assets/images/barber_image.jpg";
 
 
   static const String arabic = "assets/images/arabic.png";
