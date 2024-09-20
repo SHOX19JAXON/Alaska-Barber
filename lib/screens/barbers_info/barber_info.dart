@@ -10,8 +10,10 @@ import 'package:alaska_barber/data/models/barbers_model.dart';
 class BarberInfo extends StatefulWidget {
   final UserModel userModel;
 
-
-  const BarberInfo({super.key, required this.userModel, });
+  const BarberInfo({
+    super.key,
+    required this.userModel,
+  });
 
   @override
   State<BarberInfo> createState() => _BarberInfoState();
@@ -24,22 +26,24 @@ class _BarberInfoState extends State<BarberInfo> {
     final barber = widget.userModel;
 
     return Scaffold(
-      backgroundColor: AppColors.c1B2B2B,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      // backgroundColor: AppColors.c1B2B2B,
       appBar: AppBar(
-        backgroundColor: AppColors.c1B2B2B,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        // backgroundColor: AppColors.c1B2B2B,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.cAFECFE,
-          ),
+          icon: Icon(Icons.arrow_back, color: AppColors.white
+              // Theme.of(context).cardColor,
+
+              ),
         ),
-        title: Text(
-          "${widget.userModel.name} ${widget.userModel.surname}",
-          style: const TextStyle(color: AppColors.cAFECFE),
-        ),
+        title: Text("${widget.userModel.name} ${widget.userModel.surname}",
+            style: Theme.of(context).textTheme.bodyLarge
+            // const TextStyle(color: AppColors.cAFECFE),
+            ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -49,9 +53,10 @@ class _BarberInfoState extends State<BarberInfo> {
           children: [
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: AppColors.cAFECFE.withOpacity(0.1),
-              ),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Theme.of(context).cardColor
+                  // AppColors.cAFECFE.withOpacity(0.3),
+                  ),
               width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
@@ -69,41 +74,41 @@ class _BarberInfoState extends State<BarberInfo> {
                     Row(
                       children: [
                         const Spacer(),
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 15),
                             SizedBox(
-                              child: Text(
-                                "Isim Sharifi",
-                                style: TextStyle(color: AppColors.cAFECFE),
-                              ),
+                              child: Text("Isim Sharifi",
+                                  style: Theme.of(context).textTheme.bodyLarge
+                                  // TextStyle(color: AppColors.cAFECFE),
+                                  ),
                             ),
                             SizedBox(height: 6),
-                            Text(
-                              "Yoshi",
-                              style: TextStyle(color: AppColors.cAFECFE),
-                            ),
+                            Text("Yoshi",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // TextStyle(color: AppColors.cAFECFE),
+                                ),
                             SizedBox(height: 6),
-                            Text(
-                              "Tajribasi",
-                              style: TextStyle(color: AppColors.cAFECFE),
-                            ),
+                            Text("Tajribasi",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // TextStyle(color: AppColors.cAFECFE),
+                                ),
                             SizedBox(height: 6),
-                            Text(
-                              "Telifon",
-                              style: TextStyle(color: AppColors.cAFECFE),
-                            ),
+                            Text("Telifon",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // TextStyle(color: AppColors.cAFECFE),
+                                ),
                             SizedBox(height: 6),
-                            Text(
-                              "Gmail",
-                              style: TextStyle(color: AppColors.cAFECFE),
-                            ),
+                            Text("Gmail",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // TextStyle(color: AppColors.cAFECFE),
+                                ),
                             SizedBox(height: 6),
-                            Text(
-                              "Reytingi",
-                              style: TextStyle(color: AppColors.cAFECFE),
-                            ),
+                            Text("Reytingi",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // TextStyle(color: AppColors.cAFECFE),
+                                ),
                           ],
                         ),
                         const SizedBox(width: 20),
@@ -112,29 +117,31 @@ class _BarberInfoState extends State<BarberInfo> {
                           children: [
                             const SizedBox(height: 15),
                             Text(
-                              "${widget.userModel.name} ${widget.userModel.surname}",
-                              style: const TextStyle(color: AppColors.cAFECFE),
-                            ),
+                                "${widget.userModel.name} ${widget.userModel.surname}",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // const TextStyle(color: AppColors.cAFECFE),
+                                ),
+                            const SizedBox(height: 6),
+                            Text("${widget.userModel.age} yoshda",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // const TextStyle(color: AppColors.cAFECFE),
+                                ),
                             const SizedBox(height: 6),
                             Text(
-                              "${widget.userModel.age} yoshda",
-                              style: const TextStyle(color: AppColors.cAFECFE),
-                            ),
+                                "${widget.userModel.workExperience} yillik tajribaga ega",
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // const TextStyle(color: AppColors.cAFECFE),
+                                ),
                             const SizedBox(height: 6),
-                            Text(
-                              "${widget.userModel.workExperience} yillik tajribaga ega",
-                              style: const TextStyle(color: AppColors.cAFECFE),
-                            ),
+                            Text(widget.userModel.phoneNumber,
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // const TextStyle(color: AppColors.cAFECFE),
+                                ),
                             const SizedBox(height: 6),
-                            Text(
-                              widget.userModel.phoneNumber,
-                              style: const TextStyle(color: AppColors.cAFECFE),
-                            ),
-                            const SizedBox(height: 6),
-                            Text(
-                              widget.userModel.email,
-                              style: const TextStyle(color: AppColors.cAFECFE),
-                            ),
+                            Text(widget.userModel.email,
+                                style: Theme.of(context).textTheme.bodyLarge
+                                // const TextStyle(color: AppColors.cAFECFE),
+                                ),
                             const SizedBox(height: 6),
                             RatingBar.builder(
                               ignoreGestures: true,
@@ -161,33 +168,33 @@ class _BarberInfoState extends State<BarberInfo> {
             ),
             const SizedBox(height: 10),
             Expanded(
-              child: const Text(
-                "This example shows a custom implementation...",
-                style: TextStyle(color: AppColors.cAFECFE, fontSize: 16),
-              ),
+              child: Text("This example shows a custom implementation...",
+                  style: Theme.of(context).textTheme.bodyLarge
+                  // TextStyle(color: AppColors.cAFECFE, fontSize: 16),
+                  ),
             ),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return BarberWork(userModel: widget.userModel,);
+                    return BarberWork(
+                      userModel: widget.userModel,
+                    );
                   }));
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 12),
-                  backgroundColor: AppColors.cAFECFE.withOpacity(0.5),
+                  backgroundColor: Theme.of(context).cardColor,
+                  // AppColors.cAFECFE.withOpacity(0.5),
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
-                child: Text(
-                  "Qilgan ishlarini ko'rish",
-                  style: AppTextStyle.interRegular.copyWith(
-                    color: AppColors.white,
-                    fontSize: 13,
-                  ),
-                ),
+                child: Text("Qilgan ishlarini ko'rish",
+                    style: Theme.of(context).textTheme.bodyLarge
+                    // AppTextStyle.interRegular.copyWith(color: AppColors.white, fontSize: 13,),
+                    ),
               ),
             ),
             const SizedBox(height: 10),

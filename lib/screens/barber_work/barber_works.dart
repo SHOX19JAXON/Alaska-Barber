@@ -1,6 +1,7 @@
 import 'package:alaska_barber/data/models/barbers_model.dart';
 import 'package:alaska_barber/screens/barber_work/widget/all_hair_styles_widget.dart';
-import 'package:alaska_barber/screens/barber_work/widget/product_list_widget.dart';
+import 'package:alaska_barber/screens/barber_work/widget/barber_work_video.dart';
+import 'package:alaska_barber/screens/barber_work/widget/video_screen.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -43,20 +44,23 @@ class _BarberWorkState extends State<BarberWork> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.c1B2B2B,
+      // backgroundColor: AppColors.c1B2B2B,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: AppColors.c1B2B2B,
-        title: const Text(
+        // backgroundColor: AppColors.c1B2B2B,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title:  Text(
           "QILGAN ISHLARI",
-          style: TextStyle(color: AppColors.cAFECFE),
+          style: Theme.of(context).textTheme.bodyLarge
+          // TextStyle(color: AppColors.cAFECFE),
         ),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
+          icon:  Icon(
             Icons.arrow_back,
-            color: AppColors.cAFECFE,
+            color: AppColors.white
           ),
         ),
       ),
@@ -85,9 +89,10 @@ class _BarberWorkState extends State<BarberWork> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                 ),
-                child: const Text(
+                child:  Text(
                   "Foto",
-                  style: TextStyle(color: Colors.white, fontSize: 14),
+                  style: Theme.of(context).textTheme.bodyLarge
+                  // TextStyle(color: Colors.white, fontSize: 14),
                 ),
               ),
               ElevatedButton(
@@ -111,9 +116,10 @@ class _BarberWorkState extends State<BarberWork> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                 ),
-                child: const Text(
+                child:  Text(
                   "Video",
-                  style: TextStyle(color: Colors.white, fontSize: 14),
+                  style: Theme.of(context).textTheme.bodyLarge
+                  // TextStyle(color: Colors.white, fontSize: 14),
                 ),
               ),
               Spacer(),
@@ -164,8 +170,10 @@ class _BarberWorkState extends State<BarberWork> {
                       //   "Bu yerda videolar chiqadi",
                       //   style: TextStyle(color: Colors.white, fontSize: 18),
                       // ),
-                      WidgetProductList(
-                        onTap: () {},
+                      BarberWorkVideo(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const VideoScreen()));
+                        },
                       )
                     ],
                   ),
