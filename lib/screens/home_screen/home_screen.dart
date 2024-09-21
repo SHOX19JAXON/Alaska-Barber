@@ -3,9 +3,11 @@ import 'package:alaska_barber/screens/barbers/barbers.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:alaska_barber/utils/styles/app_text_style.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/theme/app_theme.dart';
+import 'languages_screen/languages_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text(
-          'Alyaska',
+          'Alyaska'.tr(),
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         leading: Builder(
@@ -54,9 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: Icon(Icons.language),
-              title: Text('Til tanlang'),
+              title: Text('select_language'.tr()),
               onTap: () {
-                // Biror sahifaga o'tkazish mumkin
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return LanguagesScreen();
+                }));
               },
             ),
             ListTile(
@@ -64,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 context.isDarkTheme() ? Icons.shield_moon : Icons.sunny,
                 color: context.isDarkTheme() ? Colors.yellow : Colors.blue,
               ),
-              title: Text(context.isDarkTheme() ? 'Tungi mod' : 'Kunduzgi mod'),
+              title: Text(context.isDarkTheme() ? 'dark_mode'.tr() : 'light_mode'.tr()),
               onTap: () {
                 // Theme switching
                 if (context.isDarkTheme()) {
@@ -76,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: Icon(Icons.location_on_outlined),
-              title: Text('Joylashuv'),
+              title: Text('location'.tr()),
               onTap: () {
                 // Navigate to location settings or another page
               },
@@ -98,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: Text(
-                "Alaska 10 yildan buyon o'zining mijozlarioga sifatli xizmat qilib kelmoqda. Samarqanddagi top 10 talikdagi erkaklar sartarosh xonasi bo'lib, siz bu yerda istalgan soch turmagingizni qilish imkoniga egasiz.",
+                "data".tr(),
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
@@ -126,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 child: Text(
-                  "Masterlar ro'yxati",
+                  "masters_list".tr(),
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
@@ -140,3 +144,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+//Masterlar ro'yxati, Til tanlang,Tungi mod,Kundizgi mod,Joylashuv,yoshda ,yillik tajribaga ega, Yoshi,Tajribasi,Telifon ,Reyting, Isim Sharifi, Qilgan ishlarini ko'rish, surat,video,

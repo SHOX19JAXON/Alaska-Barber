@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
@@ -79,23 +80,23 @@ class _BarberInfoState extends State<BarberInfo> {
                           children: [
                             SizedBox(height: 15),
                             SizedBox(
-                              child: Text("Isim Sharifi",
+                              child: Text("full_name".tr(),
                                   style: Theme.of(context).textTheme.bodyLarge
                                   // TextStyle(color: AppColors.cAFECFE),
                                   ),
                             ),
                             SizedBox(height: 6),
-                            Text("Yoshi",
+                            Text("age".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // TextStyle(color: AppColors.cAFECFE),
                                 ),
                             SizedBox(height: 6),
-                            Text("Tajribasi",
+                            Text("experience".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // TextStyle(color: AppColors.cAFECFE),
                                 ),
                             SizedBox(height: 6),
-                            Text("Telifon",
+                            Text("phone".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // TextStyle(color: AppColors.cAFECFE),
                                 ),
@@ -105,7 +106,7 @@ class _BarberInfoState extends State<BarberInfo> {
                                 // TextStyle(color: AppColors.cAFECFE),
                                 ),
                             SizedBox(height: 6),
-                            Text("Reytingi",
+                            Text("rating".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // TextStyle(color: AppColors.cAFECFE),
                                 ),
@@ -122,13 +123,13 @@ class _BarberInfoState extends State<BarberInfo> {
                                 // const TextStyle(color: AppColors.cAFECFE),
                                 ),
                             const SizedBox(height: 6),
-                            Text("${widget.userModel.age} yoshda",
+                            Text("${widget.userModel.age} years_old".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // const TextStyle(color: AppColors.cAFECFE),
                                 ),
                             const SizedBox(height: 6),
                             Text(
-                                "${widget.userModel.workExperience} yillik tajribaga ega",
+                                "${widget.userModel.workExperience} years_of_experience".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // const TextStyle(color: AppColors.cAFECFE),
                                 ),
@@ -191,7 +192,7 @@ class _BarberInfoState extends State<BarberInfo> {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
-                child: Text("Qilgan ishlarini ko'rish",
+                child: Text("view_works".tr(),
                     style: Theme.of(context).textTheme.bodyLarge
                     // AppTextStyle.interRegular.copyWith(color: AppColors.white, fontSize: 13,),
                     ),

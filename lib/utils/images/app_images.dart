@@ -19,6 +19,11 @@ class AppImages {
   static const String soch14 = "assets/images/soch14.png";
   static const String soch15 = "assets/images/soch15.png";
   static const String soch16 = "assets/images/soch16.png";
+  static const String english = "assets/images/english.png";
+  static const String rus_flag = "assets/images/rus_flag.png";
+  static const String uzb_flag = "assets/images/uzb_flag.jpg";
+  static const String turkflag = "assets/images/turkesh_flag.png";
+  static const String tojikflag = "assets/images/tojik_flag.png";
 
 
   static const String arabic = "assets/images/arabic.png";
