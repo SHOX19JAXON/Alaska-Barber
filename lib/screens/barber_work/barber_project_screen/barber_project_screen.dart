@@ -1,9 +1,11 @@
+import 'package:alaska_barber/screens/barber_work/barber_project_screen/flick_controllers/flick_multi_manager.dart';
+import 'package:alaska_barber/screens/barber_work/barber_project_screen/flick_controllers/flick_multi_player.dart';
 import 'package:alaska_barber/screens/barber_work/barber_project_screen/widget/photo_item.dart';
-import 'package:alaska_barber/screens/barber_work/widget/barber_work_video.dart';
-import 'package:alaska_barber/screens/barber_work/widget/video_screen.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
+import 'package:alaska_barber/utils/mock_data/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class BarberProjectScreen extends StatefulWidget {
   const BarberProjectScreen({super.key});
@@ -18,9 +20,14 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
   late VideoPlayerController _controller;
   List<int> counts = List.generate(5, (index) => 0);
 
+  List items = mockData['items'];
+
+  late FlickMultiManager flickMultiManager;
+
   @override
   void initState() {
     super.initState();
+    flickMultiManager = FlickMultiManager();
   }
 
   @override
@@ -72,8 +79,8 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                   ),
-                  child:
-                      Text("Foto", style: Theme.of(context).textTheme.bodyLarge),
+                  child: Text("Foto",
+                      style: Theme.of(context).textTheme.bodyLarge),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -128,9 +135,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                             return PhotoItem(
                               onChanged: (v) {
                                 counts[index] = v;
-                                setState(() {
-                                  
-                                });
+                                setState(() {});
                               },
                               pageCount: counts[index],
                             );
@@ -139,21 +144,41 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                       ],
                     ),
                   ),
-                  SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        BarberWorkVideo(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const VideoScreen()));
-                          },
-                        )
-                      ],
+                  SizedBox(
+                    height: 800,
+                    child: VisibilityDetector(
+                      key: ObjectKey(flickMultiManager),
+                      onVisibilityChanged: (visibility) {
+                        if (visibility.visibleFraction == 0 && this.mounted) {
+                          flickMultiManager.pause();
+                        }
+                      },
+                      child: SizedBox(height: 800,
+                        child: Container(
+                          child: ListView.separated(
+                            separatorBuilder: (context, int) => Container(
+                              height: 50,
+                            ),
+                            itemCount: items.length,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                height: 400,
+                                margin: const EdgeInsets.all(2),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: FlickMultiPlayer(
+                                    url: items[index]['trailer_url'],
+                                    flickMultiManager: flickMultiManager,
+                                    image: items[index]['image'],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
