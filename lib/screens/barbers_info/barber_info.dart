@@ -1,4 +1,5 @@
 import 'package:alaska_barber/screens/barber_work/barber_project_screen/barber_project_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
