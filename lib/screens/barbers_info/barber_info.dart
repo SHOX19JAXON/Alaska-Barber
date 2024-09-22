@@ -88,6 +88,7 @@ class _BarberInfoState extends State<BarberInfo> {
                                   ),
                             ),
                             //jhgjhgfhgfhgfhgfhgfhgf
+                            //hjghf
                             SizedBox(height: 6),
                             Text("age".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
