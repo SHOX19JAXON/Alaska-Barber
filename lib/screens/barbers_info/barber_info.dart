@@ -72,6 +72,7 @@ class _BarberInfoState extends State<BarberInfo> {
                         fit: BoxFit.cover,
                       ),
                     ),
+
                     const SizedBox(height: 10),
                     Row(
                       children: [
