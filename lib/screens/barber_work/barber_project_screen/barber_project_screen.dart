@@ -2,6 +2,7 @@ import 'package:alaska_barber/screens/barber_work/barber_project_screen/flick_co
 import 'package:alaska_barber/screens/barber_work/barber_project_screen/flick_controllers/flick_multi_player.dart';
 import 'package:alaska_barber/screens/barber_work/barber_project_screen/widget/photo_item.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
+import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:alaska_barber/utils/mock_data/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -60,7 +61,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                 ElevatedButton(
                   onPressed: () {
                     setState(
-                      () {
+                          () {
                         selectedIndex = 0;
                         _pageController.jumpToPage(0);
                       },
@@ -77,7 +78,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                       ),
                     ),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                   ),
                   child: Text("Foto",
                       style: Theme.of(context).textTheme.bodyLarge),
@@ -85,7 +86,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                 ElevatedButton(
                   onPressed: () {
                     setState(
-                      () {
+                          () {
                         selectedIndex = 1;
                         _pageController.jumpToPage(1);
                       },
@@ -103,12 +104,12 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                       ),
                     ),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                   ),
                   child:
-                      Text("Video", style: Theme.of(context).textTheme.bodyLarge
-                          // TextStyle(color: Colors.white, fontSize: 14),
-                          ),
+                  Text("Video", style: Theme.of(context).textTheme.bodyLarge
+                    // TextStyle(color: Colors.white, fontSize: 14),
+                  ),
                 ),
                 const Spacer(),
               ],
@@ -120,7 +121,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                 controller: _pageController,
                 onPageChanged: (index) {
                   setState(
-                    () {
+                        () {
                       selectedIndex = index;
                     },
                   );
@@ -131,7 +132,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                       children: [
                         ...List.generate(
                           5,
-                          (index) {
+                              (index) {
                             return PhotoItem(
                               onChanged: (v) {
                                 counts[index] = v;
@@ -145,38 +146,34 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 800,
-                    child: VisibilityDetector(
-                      key: ObjectKey(flickMultiManager),
-                      onVisibilityChanged: (visibility) {
-                        if (visibility.visibleFraction == 0 && this.mounted) {
-                          flickMultiManager.pause();
-                        }
-                      },
-                      child: SizedBox(height: 800,
-                        child: Container(
-                          child: ListView.separated(
-                            separatorBuilder: (context, int) => Container(
-                              height: 50,
-                            ),
-                            itemCount: items.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                height: 400,
-                                margin: const EdgeInsets.all(2),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5),
-                                  child: FlickMultiPlayer(
-                                    url: items[index]['trailer_url'],
-                                    flickMultiManager: flickMultiManager,
-                                    image: items[index]['image'],
-                                  ),
+                    height: 700,
+                    child: PageView(
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        ...List.generate(
+                          items.length,
+                              (index) {
+                            return Container(
+                              padding: const EdgeInsets.all(16),
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 16
+                              ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color : const Color(0xFFF5F5F5)
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: FlickMultiPlayer(
+                                  url: items[index]['trailer_url'],
+                                  flickMultiManager: flickMultiManager,
+                                  image: items[index]['image'],
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            );
+                          },
                         ),
-                      ),
+                      ],
                     ),
                   )
 
