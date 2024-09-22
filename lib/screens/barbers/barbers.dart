@@ -72,7 +72,7 @@ class _BarbersState extends State<Barbers> {
                     color:Theme.of(context).cardColor
                     // AppColors.cAFECFE.withOpacity(0.3),
                   ),
-                  width: 370,
+                  width: double.infinity,
                   height: 180,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),

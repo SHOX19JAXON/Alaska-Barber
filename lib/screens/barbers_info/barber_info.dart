@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:alaska_barber/screens/barber_work/barber_project_screen/barber_project_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
@@ -96,6 +96,7 @@ class _BarberInfoState extends State<BarberInfo> {
                                 // TextStyle(color: AppColors.cAFECFE),
                                 ),
                             SizedBox(height: 6),
+                         
                             Text("phone".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // TextStyle(color: AppColors.cAFECFE),
@@ -178,11 +179,14 @@ class _BarberInfoState extends State<BarberInfo> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return BarberWork(
-                      userModel: widget.userModel,
-                    );
-                  }));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const BarberProjectScreen();
+                      },
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 12),
