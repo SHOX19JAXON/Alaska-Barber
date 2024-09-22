@@ -179,6 +179,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                       ),
                     ),
                   )
+
                 ],
               ),
             ),
