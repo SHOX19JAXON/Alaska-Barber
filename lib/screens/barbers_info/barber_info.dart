@@ -87,6 +87,7 @@ class _BarberInfoState extends State<BarberInfo> {
                                   // TextStyle(color: AppColors.cAFECFE),
                                   ),
                             ),
+                            //jhgjhgfhgfhgfhgfhgfhgf
                             SizedBox(height: 6),
                             Text("age".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
