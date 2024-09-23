@@ -6,7 +6,6 @@ import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:alaska_barber/utils/mock_data/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 class BarberProjectScreen extends StatefulWidget {
   const BarberProjectScreen({super.key});
@@ -145,6 +144,66 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                       ],
                     ),
                   ),
+                  Expanded(
+                    child: PageView(
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        ...List.generate(
+                          items.length,
+                          (index) {
+                            return Column(
+                              children: [
+                                Container(
+                                  height: 650,
+                                  margin: const EdgeInsets.all(16),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: const Color(0xFFF5F5F5),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 16 , vertical: 25),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Caskad style",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 25),
+                                            ),
+                                            Text(
+                                              "Barber : Abubakr",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      SizedBox(
+                                        height: 550,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          child: FlickMultiPlayer(
+                                            url: items[index]['trailer_url'],
+                                            flickMultiManager:
+                                                flickMultiManager,
+                                            image: items[index]['image'],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 50,
+                                ),
+                              ],
                   SizedBox(
                     height: 800,
                     child: VisibilityDetector(
@@ -197,10 +256,9 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                             );
                           },
                         ),
-                      ),
+                      ],
                     ),
                   )
-
                 ],
               ),
             ),

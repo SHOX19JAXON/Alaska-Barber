@@ -4,27 +4,27 @@ Map<String, dynamic> mockData = {
   "items": [
     {
       "title": "Rio from Above",
+      "image": AppImages.soch12,
+      "trailer_url": AppImages.barberVideo
+    },
+    {
+      "title": "The Valley",
+      "image": AppImages.soch12,
+      "trailer_url": AppImages.barberVideo,
+    },
+    {
+      "title": "Iceland",
+      "image": AppImages.soch12,
+      "trailer_url": AppImages.barberVideo,
+    },
+    {
+      "title": "9th May & Fireworks",
+      "image": AppImages.soch12,
+      "trailer_url": AppImages.barberVideo,
       "image": AppImages.barberImage,
       "trailer_url":
       "https://github.com/GeekyAnts/flick-video-player-demo-videos/blob/master/example/rio_from_above_compressed.mp4?raw=true",
     },
-    {
-      "title": "The Valley",
-      "image": AppImages.barberImage,
-      "trailer_url":
-      "https://github.com/GeekyAnts/flick-video-player-demo-videos/blob/master/example/the_valley_compressed.mp4?raw=true",
-    },
-    {
-      "title": "Iceland",
-      "image": AppImages.barberImage,
-      "trailer_url":
-      "https://github.com/GeekyAnts/flick-video-player-demo-videos/blob/master/example/iceland_compressed.mp4?raw=true",
-    },
-    {
-      "title": "9th May & Fireworks",
-      "image": AppImages.barberImage,
-      "trailer_url":
-      "https://github.com/GeekyAnts/flick-video-player-demo-videos/blob/master/example/9th_may_compressed.mp4?raw=true",
-    },
+   
   ]
 };
