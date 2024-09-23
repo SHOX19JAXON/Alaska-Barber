@@ -34,67 +34,67 @@ class DarkTheme {
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      displayMedium: TextStyle(
+      displayMedium: const TextStyle(
         fontSize: 45,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      displaySmall: TextStyle(
+      displaySmall: const TextStyle(
         fontSize: 36,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      headlineLarge: TextStyle(
+      headlineLarge: const TextStyle(
         fontSize: 32,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      headlineMedium: TextStyle(
+      headlineMedium: const TextStyle(
         fontSize: 28,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      headlineSmall: TextStyle(
+      headlineSmall: const TextStyle(
         fontSize: 24,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      titleLarge: TextStyle(
+      titleLarge: const TextStyle(
         fontSize: 22,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      titleMedium: TextStyle(
+      titleMedium: const TextStyle(
         fontSize: 16,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      titleSmall: TextStyle(
+      titleSmall: const TextStyle(
         fontSize: 14,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      labelLarge: TextStyle(
+      labelLarge: const TextStyle(
         fontSize: 14,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      labelMedium: TextStyle(
+      labelMedium: const TextStyle(
         fontSize: 12,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      labelSmall: TextStyle(
+      labelSmall: const TextStyle(
         fontSize: 11,
         color: Colors.white,
         fontFamily: "DM sans",
@@ -106,13 +106,13 @@ class DarkTheme {
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      bodyMedium: TextStyle(
+      bodyMedium: const TextStyle(
         fontSize: 14,
         color: Colors.white,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      bodySmall: TextStyle(
+      bodySmall: const TextStyle(
         fontSize: 12,
         color: Colors.white,
         fontFamily: "DM sans",
@@ -121,9 +121,6 @@ class DarkTheme {
     ),
     useMaterial3: true,
     cardColor: const Color(0xFFAFECFE).withOpacity(0.3),
-
-
-
     shadowColor: Colors.white,
     colorScheme: const ColorScheme(
       brightness: Brightness.dark,
@@ -143,11 +140,9 @@ class DarkTheme {
       errorContainer: Color(0xFF93000A),
       onError: Color(0xFF690005),
       onErrorContainer: Color(0xFFFFDAD6),
-      background: Color(0xFF001B3D),
-      onBackground: Color(0xFFD6E3FF),
       surface: Color(0xFF001B3D),
       onSurface: Color(0xFFD6E3FF),
-      surfaceVariant: Color(0xFF45464F),
+      surfaceContainerHighest: Color(0xFF45464F),
       onSurfaceVariant: Color(0xFFC5C6D0),
       outline: Color(0xFF8F909A),
       onInverseSurface: Color(0xFF001B3D),

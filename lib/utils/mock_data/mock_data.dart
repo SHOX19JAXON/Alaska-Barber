@@ -21,9 +21,6 @@ Map<String, dynamic> mockData = {
       "title": "9th May & Fireworks",
       "image": AppImages.soch12,
       "trailer_url": AppImages.barberVideo,
-      "image": AppImages.barberImage,
-      "trailer_url":
-      "https://github.com/GeekyAnts/flick-video-player-demo-videos/blob/master/example/rio_from_above_compressed.mp4?raw=true",
     },
    
   ]

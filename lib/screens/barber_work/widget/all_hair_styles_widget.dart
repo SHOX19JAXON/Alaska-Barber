@@ -8,7 +8,7 @@ class AllHairStylesWidget extends StatefulWidget {
   const AllHairStylesWidget(
       {super.key, required this.onTap, required this.userModel});
 
-  final UserModel userModel;
+  final BarbersModel userModel;
   final VoidCallback onTap;
 
   @override

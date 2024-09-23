@@ -6,11 +6,11 @@ import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:alaska_barber/utils/styles/app_text_style.dart';
 import '../barber_work/barber_works.dart';
-import '../barbers/barbers.dart';
+import '../barbers/barbers_screen.dart';
 import 'package:alaska_barber/data/models/barbers_model.dart';
 
 class BarberInfo extends StatefulWidget {
-  final UserModel userModel;
+  final BarbersModel userModel;
 
   const BarberInfo({
     super.key,

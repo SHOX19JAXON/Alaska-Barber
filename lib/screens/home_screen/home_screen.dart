@@ -1,13 +1,11 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:alaska_barber/screens/barber_work/barber_project_screen/barber_project_screen.dart';
-import 'package:alaska_barber/screens/barbers/barbers.dart';
+import 'package:alaska_barber/screens/barbers/barbers_screen.dart';
+import 'package:alaska_barber/screens/home_screen/app_drawer/languages_screen/languages_screen.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
+import 'package:alaska_barber/utils/theme/app_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import '../../utils/theme/app_theme.dart';
-import 'languages_screen/languages_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -55,11 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.language),
+              leading: const Icon(Icons.language),
               title: Text('select_language'.tr()),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return LanguagesScreen();
+                  return const LanguagesScreen();
                 }));
               },
             ),
@@ -79,10 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.location_on_outlined),
+              leading: const Icon(Icons.location_on_outlined),
               title: Text('location'.tr()),
               onTap: () {
-                // Navigate to location settings or another page
+
               },
             ),
           ],
@@ -117,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const Barbers();
+                        return const BarbersScreen();
                       },
                     ),
                   );
@@ -165,4 +163,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-//Masterlar ro'yxati, Til tanlang,Tungi mod,Kundizgi mod,Joylashuv,yoshda ,yillik tajribaga ega, Yoshi,Tajribasi,Telifon ,Reyting, Isim Sharifi, Qilgan ishlarini ko'rish, surat,video,

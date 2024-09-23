@@ -1,9 +1,9 @@
 import 'package:alaska_barber/data/models/barbers_model.dart';
-import 'package:alaska_barber/data/models/hair_foto.dart';
+import 'package:alaska_barber/data/models/barber_work_photos.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 
-List<UserModel> barbers = [
-  UserModel(
+List<BarbersModel> barbers = [
+  BarbersModel(
     id: 1,
     name: 'Muhammadali',
     surname: 'Mamadaliyev',
@@ -16,7 +16,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos1,
   ),
-  UserModel(
+  BarbersModel(
     id: 2,
     name: 'Diyorbek',
     surname: 'Abduraxmonov',
@@ -29,7 +29,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos2,
   ),
-  UserModel(
+  BarbersModel(
     id: 3,
     name: 'Azizbek',
     surname: 'Salimov',
@@ -42,7 +42,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos3,
   ),
-  UserModel(
+  BarbersModel(
     id: 4,
     name: 'Anvar',
     surname: 'Davronov',
@@ -55,7 +55,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos4,
   ),
-  UserModel(
+  BarbersModel(
     id: 5,
     name: 'Jali',
     surname: 'Jalilov',
@@ -68,7 +68,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos1,
   ),
-  UserModel(
+  BarbersModel(
     id: 6,
     name: 'Alisher',
     surname: "To'xtayev",
@@ -81,7 +81,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos2,
   ),
-  UserModel(
+  BarbersModel(
     id: 7,
     name: 'Sanjar',
     surname: 'Murodiv',
@@ -94,7 +94,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos3,
   ),
-  UserModel(
+  BarbersModel(
     id: 8,
     name: 'Nazirjon',
     surname: 'Salimjon',
@@ -107,7 +107,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos4,
   ),
-  UserModel(
+  BarbersModel(
     id: 9,
     name: 'Otabek',
     surname: 'Mamadaliyev',
@@ -120,7 +120,7 @@ List<UserModel> barbers = [
     image: AppImages.person1,
     fotos: barberWorkFotos1,
   ),
-  UserModel(
+  BarbersModel(
     id: 10,
     name: 'Ibrohim',
     surname: "To'xtashimova",
