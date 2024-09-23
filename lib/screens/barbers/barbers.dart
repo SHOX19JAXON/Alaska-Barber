@@ -27,7 +27,8 @@ class _BarbersState extends State<Barbers> {
       backgroundColor:   Theme.of(context).scaffoldBackgroundColor,
       // AppColors.c1B2B2B,
       appBar: AppBar(
-        backgroundColor:  Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor:
+        Theme.of(context).scaffoldBackgroundColor,
         // AppColors.c1B2B2B,
         leading: IconButton(
           onPressed: () {
@@ -69,8 +70,31 @@ class _BarbersState extends State<Barbers> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color:Theme.of(context).cardColor
+                    // color:Theme.of(context).cardColor,
+                    // gradient: Theme.of(context).cardColor,
                     // AppColors.cAFECFE.withOpacity(0.3),
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFF030305),
+                        Color(0xFF0D0F19),
+                        Color(0xFF272827) // Bu rang `opacity` bilan.
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    border: Border.all(
+                      color: AppColors.white, // Border rangi oq
+                      width: 0.1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4), // Soyaning rangi
+                        spreadRadius: 2,
+                        blurRadius: 6,
+                        offset: Offset(0, 3), // Soyaning joylashuvi
+                      ),
+                    ],
+
                   ),
                   width: double.infinity,
                   height: 180,

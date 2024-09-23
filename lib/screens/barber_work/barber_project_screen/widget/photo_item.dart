@@ -15,6 +15,19 @@ class PhotoItem extends StatelessWidget {
       margin: const EdgeInsets.only(left: 16 , right: 16 , bottom: 16),
       decoration: BoxDecoration(
           color: const Color(0xFFF5F5F5),
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF030305),
+              Color(0xFF0D0F19),
+              Color(0xFF272827)
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          border: Border.all(
+            color: Colors.white,
+            width: 0.1,
+          ),
           borderRadius: BorderRadius.circular(16)),
       child: Column(
         children: [
