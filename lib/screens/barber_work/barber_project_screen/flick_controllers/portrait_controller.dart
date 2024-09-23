@@ -19,7 +19,6 @@ class FeedPlayerPortraitControls extends StatelessWidget {
     final displayManager = Provider.of<FlickDisplayManager>(context, listen: false);
 
     return Container(
-      height: 400,  // Keep the height as required
       color: Colors.transparent,  // Ensure transparent background for the player
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Column(

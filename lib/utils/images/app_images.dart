@@ -46,6 +46,8 @@ class AppImages {
 
   static const String chat = "assets/icons/chat.svg";
 
+  static const String barberVideo = "assets/video/barber.mp4";
+
 
 
 }

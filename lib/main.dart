@@ -1,4 +1,3 @@
-
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:alaska_barber/screens/splash_screen/splesh_screen.dart';
 import 'package:alaska_barber/utils/theme/app_theme.dart';
