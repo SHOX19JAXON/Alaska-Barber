@@ -29,7 +29,7 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
   void initState() {
     flickManager = FlickManager(
       videoPlayerController:
-      VideoPlayerController.networkUrl(Uri.parse(widget.url))
+      VideoPlayerController.asset(widget.url)
         ..setLooping(true),
       autoPlay: false,
     );
@@ -92,7 +92,7 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
                   widget.image!,
                   fit: BoxFit.fitWidth,
                 )),
-            controls: FlickLandscapeControls(),
+            controls: const FlickLandscapeControls(),
             iconThemeData: IconThemeData(
               size: 40,
               color: Colors.white,

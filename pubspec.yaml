@@ -58,6 +58,7 @@ dependencies:
   adaptive_theme: ^2.2.0
   flick_video_player: ^0.9.0
   visibility_detector: ^0.4.0+2
+  easy_localization: ^3.0.7
 
 
 dev_dependencies:
@@ -79,10 +80,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/icons/
-    - assets/fonts/
     - assets/lotties/
     - assets/video/
+    - assets/translations/
+#    - images/iceland_poster.jpg
 
 #  fonts:
 #    - family: Poppins

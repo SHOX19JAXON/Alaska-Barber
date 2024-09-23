@@ -18,9 +18,9 @@ class LightTheme {
       ),
     ),
     shadowColor: Colors.black,
-    cardColor: AppColors.cAFECFE,
+    cardColor: const Color(0xFFAFECFE).withOpacity(0.3),
     dividerColor: AppColors.cA0A7B1,
-    textTheme: const TextTheme(
+    textTheme:  TextTheme(
       displayLarge: TextStyle(
         fontSize: 57,
         color: Colors.black,
@@ -95,7 +95,7 @@ class LightTheme {
       ),
       bodyLarge: TextStyle(
         fontSize: 16,
-        color: Colors.black,
+        color: Colors.white.withOpacity(0.8),
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
