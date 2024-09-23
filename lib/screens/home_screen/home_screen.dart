@@ -2,7 +2,6 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:alaska_barber/screens/barbers/barbers.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
-import 'package:alaska_barber/utils/styles/app_text_style.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
