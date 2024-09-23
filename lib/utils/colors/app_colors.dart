@@ -25,10 +25,20 @@ class AppColors {
   static const Color c0D0140 = Color(0xFf0D0140);
   static const Color cAFECFE = Color(0xFfAFECFE);
   static const Color cBEAFFE = Color(0xFfBEAFFE);
+  static const Color c6F6B80 = Color(0xFf6F6B80);
 
   static const Color c232D3A = Color(0xFf232D3A);
 
   static const Color cFCA34D = Color(0xFfFCA34D);
   static const Color c2C373B = Color(0xFf2C373B);
   static const Color c3B4657 = Color(0xFF3B4657);
+  static const Color c111522 = Color(0xFF111522);
+  static const Color c0D0F19 = Color(0xFF0D0F19);
+  static const Color c030305 = Color(0xFF030305);
+  static const Color c2728275 = Color(0xFF272827);
+  static Color cGradient3 = const LinearGradient(colors: [
+            Color(0xFF0D0F19),
+            Color(0xFF030305),
+            Color(0xFF272827)]) as Color;
+
 }

@@ -24,23 +24,28 @@ class _BarbersState extends State<Barbers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.c1B2B2B,
+      backgroundColor:   Theme.of(context).scaffoldBackgroundColor,
+      // AppColors.c1B2B2B,
       appBar: AppBar(
-        backgroundColor: AppColors.c1B2B2B,
+        backgroundColor:
+        Theme.of(context).scaffoldBackgroundColor,
+        // AppColors.c1B2B2B,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
+          icon:  Icon(
             Icons.arrow_back,
-            color: AppColors.cAFECFE,
+            color: Theme.of(context).shadowColor
+            // AppColors.cAFECFE,
           ),
         ),
-        title: const Padding(
+        title:  Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
             "Masterlar ro'yxati",
-            style: TextStyle(color: AppColors.cAFECFE),
+            style: Theme.of(context).textTheme.bodyLarge,
+            // TextStyle(color: AppColors.cAFECFE),
           ),
         ),
       ),
@@ -65,10 +70,34 @@ class _BarbersState extends State<Barbers> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: AppColors.cAFECFE.withOpacity(0.5),
+                    // color:Theme.of(context).cardColor,
+                    // gradient: Theme.of(context).cardColor,
+                    // AppColors.cAFECFE.withOpacity(0.3),
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFF030305),
+                        Color(0xFF0D0F19),
+                        Color(0xFF272827) // Bu rang `opacity` bilan.
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    border: Border.all(
+                      color: AppColors.white, // Border rangi oq
+                      width: 0.1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4), // Soyaning rangi
+                        spreadRadius: 2,
+                        blurRadius: 6,
+                        offset: Offset(0, 3), // Soyaning joylashuvi
+                      ),
+                    ],
+
                   ),
-                  width: 370,
-                  height: 200,
+                  width: double.infinity,
+                  height: 180,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: Row(
@@ -76,8 +105,8 @@ class _BarbersState extends State<Barbers> {
                         ClipOval(
                           child: Image.asset(
                             barbers[index].image,
-                            width: 180,
-                            height: 180,
+                            width: 150,
+                            height: 150,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -87,24 +116,29 @@ class _BarbersState extends State<Barbers> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 40),
+                            Spacer(),
                             SizedBox(
                               width: 150,
                               child: Text(
                                 "${barbers[index].name} ${barbers[index].surname}",
-                                style:
-                                    const TextStyle(color: AppColors.cAFECFE),
+                                style:Theme.of(context).textTheme.bodyLarge
+                                    // const TextStyle(color: AppColors.cAFECFE),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            SizedBox(
+                              width: 150,
+                              child: Text(
+                                "${barbers[index].age} yoshda",
+                                style:Theme.of(context).textTheme.bodyLarge
+                                // const TextStyle(color: AppColors.cAFECFE),
                               ),
                             ),
                             const SizedBox(height: 10),
                             Text(
-                              "${barbers[index].age} yoshda",
-                              style: const TextStyle(color: AppColors.cAFECFE),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
                               "${barbers[index].workExperience} yillik tajribaga ega",
-                              style: const TextStyle(color: AppColors.cAFECFE),
+                              style:Theme.of(context).textTheme.bodyLarge
+                              // const TextStyle(color: AppColors.cAFECFE),
                             ),
                             const SizedBox(height: 10),
                             RatingBar.builder(
@@ -121,6 +155,7 @@ class _BarbersState extends State<Barbers> {
                               ),
                               onRatingUpdate: (rating) {},
                             ),
+                            Spacer(),
                           ],
                         ),
                       ],

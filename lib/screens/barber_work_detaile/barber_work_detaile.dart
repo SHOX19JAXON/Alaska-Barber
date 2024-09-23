@@ -19,17 +19,20 @@ class _BarberWorkDetailState extends State<BarberWorkDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.c1B2B2B,
+      // backgroundColor: AppColors.c1B2B2B,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: AppColors.c1B2B2B,
-        title: const Text("STIL"),
+        // backgroundColor: AppColors.c1B2B2B,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title:  Text("STIL",style: Theme.of(context).textTheme.bodyLarge,),
       ),
       body: Column(
         children: [
           CarouselSlider.builder(
             itemCount: widget.userModel.fotos[0].image.length,
             itemBuilder: (context, index, realIndex) {
-              // Access the correct image list for the first barber work detail
+
+
               final imagePath = widget.userModel.fotos[0].image[index];
               print("Current Image Path: $imagePath");
               return ClipRRect(

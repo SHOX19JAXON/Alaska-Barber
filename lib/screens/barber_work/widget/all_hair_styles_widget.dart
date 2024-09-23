@@ -34,8 +34,10 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
               ),
               itemCount: widget.userModel.fotos.length, // Use fotos.length
               itemBuilder: (context, index) {
-                final foto = widget.userModel.fotos[index];
 
+                final foto = widget.userModel.fotos[index];
+                // print("------------------------${widget.userModel.fotos.length}");
+                print("------------------------${widget.userModel.fotos[index].image.length}");
                 return InkWell(
                   borderRadius: BorderRadius.circular(25),
                   onTap: widget.onTap,
@@ -45,7 +47,7 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(25),
                         child: Image.asset(
-                          foto.image.isNotEmpty ? foto.image[0] : AppImages.barber, // Handle empty image list
+                          widget.userModel.fotos[index].image[0],
                           fit: BoxFit.cover,
                           height: 150,
                           width: double.infinity,
@@ -56,10 +58,8 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                       ),
                       Text(
                         foto.name,
-                        style: const TextStyle(
-                          color: AppColors.cAFECFE,
-                          fontSize: 18,
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge
+                        // const TextStyle(color: AppColors.cAFECFE, fontSize: 18,),
                       ),
                       const SizedBox(
                         height: 3,
@@ -71,10 +71,8 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                               children: [
                                 TextSpan(
                                   text: "${foto.likes} ",
-                                  style: const TextStyle(
-                                    color: AppColors.cAFECFE,
-                                    fontSize: 14,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyLarge
+                                  // const TextStyle(color: AppColors.cAFECFE, fontSize: 14,),
                                 ),
                               ],
                             ),
@@ -88,9 +86,10 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                       ),
                       Row(
                         children: [
-                          const Text(
+                           Text(
                             "3.5",
-                            style: TextStyle(color: AppColors.cAFECFE),
+                            style:Theme.of(context).textTheme.bodyLarge
+                            // TextStyle(color: AppColors.cAFECFE),
                           ),
                           const SizedBox(
                             width: 2,
@@ -111,9 +110,10 @@ class _AllHairStylesWidgetState extends State<AllHairStylesWidget> {
                           const SizedBox(
                             width: 2,
                           ),
-                          const Text(
+                           Text(
                             "(3.k)",
-                            style: TextStyle(color: AppColors.cAFECFE),
+                            style: Theme.of(context).textTheme.bodyLarge
+                            // TextStyle(color: AppColors.cAFECFE),
                           ),
                         ],
                       ),
