@@ -22,12 +22,13 @@ class DarkTheme {
     bottomAppBarTheme: const BottomAppBarTheme(color: AppColors.cDEE1E7),
     iconTheme: const IconThemeData(color: AppColors.c6F6B80, size: 24),
     switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.all((Colors.white)),
-      trackColor: MaterialStateProperty.all((Colors.grey.shade300)),
+      thumbColor: WidgetStateProperty.all((Colors.white)),
+      trackColor: WidgetStateProperty.all((Colors.grey.shade300)),
     ),
     dividerColor: AppColors.cDEE1E7,
+
     textTheme:  TextTheme(
-      displayLarge: TextStyle(
+      displayLarge: const TextStyle(
         fontSize: 57,
         color: Colors.white,
         fontFamily: "DM sans",
@@ -120,6 +121,8 @@ class DarkTheme {
     ),
     useMaterial3: true,
     cardColor: const Color(0xFFAFECFE).withOpacity(0.3),
+
+
 
     shadowColor: Colors.white,
     colorScheme: const ColorScheme(
