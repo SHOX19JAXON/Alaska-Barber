@@ -2,6 +2,7 @@ import 'package:alaska_barber/screens/barber_work/barber_project_screen/flick_co
 import 'package:alaska_barber/screens/barber_work/barber_project_screen/flick_controllers/flick_multi_player.dart';
 import 'package:alaska_barber/screens/barber_work/barber_project_screen/widget/photo_item.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
+import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:alaska_barber/utils/mock_data/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -195,6 +196,8 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                     ),
                   ),
                   Expanded(
+                  SizedBox(
+                    height: 700,
                     child: PageView(
                       scrollDirection: Axis.vertical,
                       children: [
@@ -254,6 +257,23 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                                   height: 50,
                                 ),
                               ],
+                            return Container(
+                              padding: const EdgeInsets.all(16),
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 16
+                              ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color : const Color(0xFFF5F5F5)
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: FlickMultiPlayer(
+                                  url: items[index]['trailer_url'],
+                                  flickMultiManager: flickMultiManager,
+                                  image: items[index]['image'],
+                                ),
+                              ),
                             );
                           },
                         ),

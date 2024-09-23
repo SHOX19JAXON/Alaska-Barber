@@ -15,16 +15,15 @@ class FeedPlayerPortraitControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ensure the FlickDisplayManager is available in the widget tree.
     final displayManager = Provider.of<FlickDisplayManager>(context, listen: false);
 
     return Container(
-      color: Colors.transparent,  // Ensure transparent background for the player
+      height: 400, 
+      color: Colors.transparent,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,  // Align children to the right end
-        children: <Widget>[
-          // Display remaining video duration at the top right
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children:[
           FlickAutoHideChild(
             showIfVideoNotInitialized: false,
             child: Align(
@@ -32,50 +31,47 @@ class FeedPlayerPortraitControls extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                 decoration: BoxDecoration(
-                  color: Colors.black38,  // Semi-transparent background for better contrast
+                  color: Colors.black38, 
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const FlickLeftDuration(),  // Displays time remaining in the video
+                child: const FlickLeftDuration(),
               ),
             ),
           ),
-          // Central area for play/pause toggle, buffer display and seek action
           Expanded(
             child: FlickToggleSoundAction(
               toggleMute: () {
-                flickMultiManager?.toggleMute();  // Mute or unmute the video
-                displayManager.handleShowPlayerControls();  // Ensure player controls are shown
+                flickMultiManager?.toggleMute(); 
+                displayManager.handleShowPlayerControls();
               },
               child: const FlickSeekVideoAction(
                 child: Center(
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      FlickVideoBuffer(),  // Display buffering state in the background
-                      FlickPlayToggle(size: 50),  // Centered play/pause button
+                      FlickVideoBuffer(),
+                      FlickPlayToggle(size: 50),
                     ],
                   ),
                 ),
               ),
             ),
           ),
-          // Bottom row with sound toggle
           FlickAutoHideChild(
-            autoHide: true,  // Automatically hide controls after inactivity
-            showIfVideoNotInitialized: false,  // Hide controls if video is not initialized
+            autoHide: true,
+            showIfVideoNotInitialized: false,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                // Container for sound toggle
+              children:[
                 Container(
                   padding: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
-                    color: Colors.black,  // Black for better visibility
+                    color: Colors.black,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: FlickSoundToggle(
-                    toggleMute: () => flickMultiManager?.toggleMute(),  // Toggle sound
-                    color: Colors.white,  // White color for sound toggle button
+                    toggleMute: () => flickMultiManager?.toggleMute(),
+                    color: Colors.white,
                   ),
                 ),
               ],
