@@ -153,7 +153,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                             return Column(
                               children: [
                                 Container(
-                                  height: 650,
+                                  height: 600,
                                   margin: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
@@ -184,7 +184,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                                       ),
                                       const Spacer(),
                                       SizedBox(
-                                        height: 550,
+                                        height: 500,
                                         child: ClipRRect(
                                           borderRadius:
                                           BorderRadius.circular(20),
@@ -199,9 +199,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                                     ],
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 50,
-                                ),
+
                               ],
                             );
                           },
