@@ -57,6 +57,7 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
         child: FlickVideoPlayer(
           flickManager: flickManager,
           flickVideoWithControls: FlickVideoWithControls(
+            videoFit: BoxFit.cover,
             playerLoadingFallback: Positioned.fill(
               child: Stack(
                 children: <Widget>[
@@ -93,7 +94,7 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
                   fit: BoxFit.fitWidth,
                 )),
             controls: const FlickLandscapeControls(),
-            iconThemeData: IconThemeData(
+            iconThemeData: const IconThemeData(
               size: 40,
               color: Colors.white,
             ),

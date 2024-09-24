@@ -161,7 +161,8 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
   }
 
   Widget _buildVideoContent() {
-    return Column(
+    return PageView(
+      scrollDirection: Axis.vertical,
       children: [
         ...List.generate(
           items.length,
@@ -175,8 +176,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                     borderRadius: BorderRadius.circular(20),
                     color: const Color(0xFFF5F5F5),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: ListView(
                     children: [
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 25),
@@ -194,15 +194,17 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                           ],
                         ),
                       ),
-                      const Spacer(),
-                      SizedBox(
-                        height: 550,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: FlickMultiPlayer(
-                            url: items[index]['trailer_url'],
-                            flickMultiManager: flickMultiManager,
-                            image: items[index]['image'],
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: SizedBox(
+                          height : 500,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: FlickMultiPlayer(
+                              url: items[index]['trailer_url'],
+                              flickMultiManager: flickMultiManager,
+                              image: items[index]['image'],
+                            ),
                           ),
                         ),
                       ),

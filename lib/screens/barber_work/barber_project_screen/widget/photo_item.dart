@@ -15,7 +15,7 @@ class PhotoItem extends StatelessWidget {
       margin: const EdgeInsets.only(left: 16 , right: 16 , bottom: 16),
       decoration: BoxDecoration(
           color: const Color(0xFFF5F5F5),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               Color(0xFF030305),
               Color(0xFF0D0F19),
@@ -52,11 +52,11 @@ class PhotoItem extends StatelessWidget {
                   children: [
                     Text(
                       "Abubakr Oqilov",
-                      style: TextStyle(color: Colors.black, fontSize: 20),
+                      style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     Text(
                       "To'y uchun qilingan kuyov stil ",
-                      style: TextStyle(color: Colors.black, fontSize: 12),
+                      style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
                   ],
                 ),
