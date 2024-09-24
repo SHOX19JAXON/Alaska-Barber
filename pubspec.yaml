@@ -83,6 +83,7 @@ flutter:
     - assets/lotties/
     - assets/video/
     - assets/translations/
+#    - images/iceland_poster.jpg
 
 #  fonts:
 #    - family: Poppins

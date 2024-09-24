@@ -4,7 +4,6 @@ import 'package:alaska_barber/screens/barber_work/barber_project_screen/widget/p
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/mock_data/mock_data.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
 class BarberProjectScreen extends StatefulWidget {
   const BarberProjectScreen({super.key});
@@ -16,7 +15,6 @@ class BarberProjectScreen extends StatefulWidget {
 class _BarberProjectScreenState extends State<BarberProjectScreen> {
   int selectedIndex = 0;
   final PageController _pageController = PageController(initialPage: 0);
-  late VideoPlayerController _controller;
   List<int> counts = List.generate(5, (index) => 0);
 
   List items = mockData['items'];
@@ -32,7 +30,6 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
   }
 
   @override
@@ -41,8 +38,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: Text("QILGAN ISHLARI",
-            style: Theme.of(context).textTheme.bodyLarge),
+        title: Text("QILGAN ISHLARI", style: Theme.of(context).textTheme.bodyLarge),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -53,64 +49,18 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              children: [
-                const Spacer(),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(
-                          () {
-                        selectedIndex = 0;
-                        _pageController.jumpToPage(0);
-                      },
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedIndex == 0
-                        ? AppColors.cAFECFE.withOpacity(0.5)
-                        : AppColors.black.withOpacity(0.5),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        topLeft: Radius.circular(15),
-                      ),
-                    ),
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: _buildTabButton(context, "Foto", 0),
                   ),
-                  child: Text("Foto",
-                      style: Theme.of(context).textTheme.bodyLarge),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(
-                          () {
-                        selectedIndex = 1;
-                        _pageController.jumpToPage(1);
-                      },
-                    );
-                    //996848581
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedIndex == 1
-                        ? AppColors.cAFECFE.withOpacity(0.5)
-                        : AppColors.black.withOpacity(0.5),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                      ),
-                    ),
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                  Expanded(
+                    child: _buildTabButton(context, "Video", 1),
                   ),
-                  child:
-                  Text("Video", style: Theme.of(context).textTheme.bodyLarge
-                    // TextStyle(color: Colors.white, fontSize: 14),
-                  ),
-                ),
-                const Spacer(),
-              ],
+                ],
+              ),
             ),
             const SizedBox(height: 20),
             SizedBox(
@@ -118,101 +68,153 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
               child: PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
-                  setState(
-                        () {
-                      selectedIndex = index;
-                    },
-                  );
+                  setState(() {
+                    selectedIndex = index;
+                  });
                 },
                 children: [
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        ...List.generate(
-                          5,
-                              (index) {
-                            return PhotoItem(
-                              onChanged: (v) {
-                                counts[index] = v;
-                                setState(() {});
-                              },
-                              pageCount: counts[index],
-                            );
-                          },
-                        )
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: PageView(
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        ...List.generate(
-                          items.length,
-                              (index) {
-                            return Column(
-                              children: [
-                                Container(
-                                  height: 600,
-                                  margin: const EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: const Color(0xFFF5F5F5),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      const Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 16 , vertical: 25),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "Caskad style",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 25),
-                                            ),
-                                            Text(
-                                              "Barber : Abubakr",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 15),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      SizedBox(
-                                        height: 500,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                          BorderRadius.circular(20),
-                                          child: FlickMultiPlayer(
-                                            url: items[index]['trailer_url'],
-                                            flickMultiManager:
-                                            flickMultiManager,
-                                            image: items[index]['image'],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-
-                              ],
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  )
+                  _buildPhotoContent(),
+                  _buildVideoContent(),
                 ],
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildTabButton(BuildContext context, String label, int index) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: selectedIndex == index
+            ? const LinearGradient(
+          colors: [
+            Color(0xFF030305),
+            Color(0xFF0D0F19),
+            Color(0xFF272827),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        )
+            : null,
+        color: selectedIndex != index ? Colors.black.withOpacity(0.5) : null,
+        borderRadius: index == 0
+            ? const BorderRadius.only(
+          bottomLeft: Radius.circular(15),
+          topLeft: Radius.circular(15),
+        )
+            : const BorderRadius.only(
+          bottomRight: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+        border: Border.all(
+          color: Colors.white,
+          width: 0.1,
+        ),
+      ),
+      child: ElevatedButton(
+        onPressed: () {
+          setState(() {
+            selectedIndex = index;
+            _pageController.jumpToPage(index);
+          });
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 0),
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: index == 0
+                ? const BorderRadius.only(
+              bottomLeft: Radius.circular(15),
+              topLeft: Radius.circular(15),
+            )
+                : const BorderRadius.only(
+              bottomRight: Radius.circular(15),
+              topRight: Radius.circular(15),
+            ),
+          ),
+        ),
+        child: Text(
+          label,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPhotoContent() {
+    return SingleChildScrollView(
+      child: Column(
+        children: List.generate(5, (index) {
+          return PhotoItem(
+            onChanged: (v) {
+              counts[index] = v;
+              setState(() {});
+            },
+            pageCount: counts[index],
+          );
+        }),
+      ),
+    );
+  }
+
+  Widget _buildVideoContent() {
+    return Column(
+      children: [
+        ...List.generate(
+          items.length,
+              (index) {
+            return Column(
+              children: [
+                Container(
+                  height: 650,
+                  margin: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xFFF5F5F5),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Caskad style",
+                              style: TextStyle(color: Colors.black, fontSize: 25),
+                            ),
+                            Text(
+                              "Barber : Abubakr",
+                              style: TextStyle(color: Colors.black, fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Spacer(),
+                      SizedBox(
+                        height: 550,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: FlickMultiPlayer(
+                            url: items[index]['trailer_url'],
+                            flickMultiManager: flickMultiManager,
+                            image: items[index]['image'],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 50),
+              ],
+            );
+          },
+        ),
+      ],
     );
   }
 }

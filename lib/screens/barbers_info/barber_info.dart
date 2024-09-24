@@ -55,10 +55,27 @@ class _BarberInfoState extends State<BarberInfo> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).cardColor
-                  // AppColors.cAFECFE.withOpacity(0.3),
-                  ),
+                borderRadius: BorderRadius.circular(20),
+                // color: Theme.of(context).cardColor,
+                gradient: LinearGradient(
+                  colors: [
+                    // Color(0xFF030305),
+                    // Color(0xFF0C0F18),
+                    // Color(0xFF121624),
+                    // AppColors.c2728275.withOpacity(0.7)
+                    Color(0xFF030305),
+                    Color(0xFF0D0F19),
+                    Color(0xFF272827)
+                  ],
+                  begin: Alignment.topCenter, // Gradient boshlanish nuqtasi
+                  end: Alignment.bottomCenter, // Gradient tugash nuqtasi
+                ),
+                border: Border.all(
+                  color: Colors.white,
+                  width: 0.1,
+                ),
+                // AppColors.cAFECFE.withOpacity(0.3),
+              ),
               width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
@@ -72,7 +89,6 @@ class _BarberInfoState extends State<BarberInfo> {
                         fit: BoxFit.cover,
                       ),
                     ),
-
                     const SizedBox(height: 10),
                     Row(
                       children: [
@@ -100,7 +116,7 @@ class _BarberInfoState extends State<BarberInfo> {
                                 // TextStyle(color: AppColors.cAFECFE),
                                 ),
                             SizedBox(height: 6),
-                         
+
                             Text("phone".tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // TextStyle(color: AppColors.cAFECFE),
@@ -134,7 +150,8 @@ class _BarberInfoState extends State<BarberInfo> {
                                 ),
                             const SizedBox(height: 6),
                             Text(
-                                "${widget.userModel.workExperience} years_of_experience".tr(),
+                                "${widget.userModel.workExperience} years_of_experience"
+                                    .tr(),
                                 style: Theme.of(context).textTheme.bodyLarge
                                 // const TextStyle(color: AppColors.cAFECFE),
                                 ),
@@ -179,6 +196,7 @@ class _BarberInfoState extends State<BarberInfo> {
                   // TextStyle(color: AppColors.cAFECFE, fontSize: 16),
                   ),
             ),
+
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -193,19 +211,40 @@ class _BarberInfoState extends State<BarberInfo> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  backgroundColor: Theme.of(context).cardColor,
-                  // AppColors.cAFECFE.withOpacity(0.5),
+                  padding: EdgeInsets.zero, // Container uchun paddingni olib tashlash
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
-                child: Text("view_works".tr(),
-                    style: Theme.of(context).textTheme.bodyLarge
-                    // AppTextStyle.interRegular.copyWith(color: AppColors.white, fontSize: 13,),
+                child: Ink(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFF030305),
+                        Color(0xFF0D0F19),
+                        Color(0xFF272827)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                     ),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 0.1,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    child: Text(
+                      "view_works".tr(),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ),
+                ),
               ),
             ),
+
             const SizedBox(height: 10),
           ],
         ),
