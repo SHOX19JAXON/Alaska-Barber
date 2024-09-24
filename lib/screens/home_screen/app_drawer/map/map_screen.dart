@@ -21,7 +21,7 @@ class MapScreen extends StatelessWidget {
             icon: PlacemarkIcon.single(
               PlacemarkIconStyle(
                 image: BitmapDescriptor.fromAssetImage(
-                  AppImages.barberImage,
+                  AppImages.barberLocation,
                 ),
                 scale: 2.5,
               ),
@@ -31,9 +31,9 @@ class MapScreen extends StatelessWidget {
         onMapCreated: (YandexMapController controller) {
           controller.moveCamera(
             CameraUpdate.newCameraPosition(
-              CameraPosition(
+              const CameraPosition(
                 target:alaskaBarber,
-                zoom: 12,
+                zoom: 18,
               ),
             ),
           );

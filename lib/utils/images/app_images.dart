@@ -25,6 +25,7 @@ class AppImages {
   static const String uzb_flag = "assets/images/uzb_flag.jpg";
   static const String turkflag = "assets/images/turkesh_flag.png";
   static const String tojikflag = "assets/images/tojik_flag.png";
+  static const String barberLocation = "assets/images/barber_location.png";
 
 
   static const String arabic = "assets/images/arabic.png";

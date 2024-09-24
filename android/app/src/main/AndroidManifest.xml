@@ -3,6 +3,9 @@
         android:label="alaska_barber"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.yandex.mapkit.ApiKey"
+            android:value="d5ba9bc2-1579-4ef8-8acf-a09223118fe0"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
