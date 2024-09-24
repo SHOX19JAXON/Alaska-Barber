@@ -11,14 +11,14 @@ import '../barber_work_detaile/barber_work_detaile.dart';
 class BarberWork extends StatefulWidget {
   const BarberWork({super.key, required this.userModel});
 
-  final UserModel userModel;
+  final BarbersModel userModel;
 
   @override
   State<BarberWork> createState() => _BarberWorkState();
 }
 
 class _BarberWorkState extends State<BarberWork> {
-  int selectedIndex = 0; // Dastlab Foto ko'rsatiladi
+  int selectedIndex = 0;
   final PageController _pageController =
       PageController(initialPage: 0); // PageView controller
   late VideoPlayerController _controller;
@@ -26,10 +26,8 @@ class _BarberWorkState extends State<BarberWork> {
   @override
   void initState() {
     super.initState();
-    // Video assets-dan yuklanadi
     _controller = VideoPlayerController.asset('assets/videos/sample_video.mp4')
       ..initialize().then((_) {
-        // Video yuklangandan keyin UI-ni qayta chizish
         setState(() {});
       });
   }
@@ -37,7 +35,6 @@ class _BarberWorkState extends State<BarberWork> {
   @override
   void dispose() {
     super.dispose();
-    // Video player resurslarini tozalash
     _controller.dispose();
   }
 
@@ -58,7 +55,7 @@ class _BarberWorkState extends State<BarberWork> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon:  Icon(
+          icon:  const Icon(
             Icons.arrow_back,
             color: AppColors.white
           ),
@@ -68,11 +65,11 @@ class _BarberWorkState extends State<BarberWork> {
         children: [
           Row(
             children: [
-              Spacer(),
+              const Spacer(),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    selectedIndex = 0; // Foto tanlandi
+                    selectedIndex = 0;
                     _pageController.jumpToPage(0);
                   });
                 },
@@ -135,7 +132,6 @@ class _BarberWorkState extends State<BarberWork> {
                 });
               },
               children: [
-                // 1-chi sahifa: Foto uchun
                 SingleChildScrollView(
                   child: AllHairStylesWidget(
                     onTap: () {
@@ -155,7 +151,6 @@ class _BarberWorkState extends State<BarberWork> {
                     userModel: widget.userModel,
                   ),
                 ),
-                // 2-chi sahifa: Video uchun
                 SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

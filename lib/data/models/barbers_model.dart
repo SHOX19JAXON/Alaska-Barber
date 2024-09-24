@@ -1,6 +1,6 @@
-import 'package:alaska_barber/data/models/hair_foto.dart';
+import 'package:alaska_barber/data/models/barber_work_photos.dart';
 
-class UserModel {
+class BarbersModel {
   final int id;
   final String name;
   final String surname;
@@ -12,7 +12,7 @@ class UserModel {
   final String email;
   final String description;
   final List<BarberWorkFotos> fotos;
-  UserModel( {
+  BarbersModel( {
     required this.id,
     required this.name,
     required this.surname,
@@ -26,8 +26,8 @@ class UserModel {
     required this.fotos,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
+  factory BarbersModel.fromJson(Map<String, dynamic> json) {
+    return BarbersModel(
       id: json['id'] as int? ?? 0,
       name: json['name']as String? ?? '',
       surname: json['surname']as String? ?? '',

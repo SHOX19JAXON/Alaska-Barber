@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class FlickMultiPlayer extends StatefulWidget {
-  const FlickMultiPlayer(
-      {Key? key,
-        required this.url,
-        this.image,
-        required this.flickMultiManager})
-      : super(key: key);
+  const FlickMultiPlayer({
+    super.key,
+    required this.url,
+    this.image,
+    required this.flickMultiManager,
+  });
 
   final String url;
   final String? image;
@@ -28,8 +28,7 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
   @override
   void initState() {
     flickManager = FlickManager(
-      videoPlayerController:
-      VideoPlayerController.asset(widget.url)
+      videoPlayerController: VideoPlayerController.asset(widget.url)
         ..setLooping(true),
       autoPlay: false,
     );
@@ -48,8 +47,8 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
   Widget build(BuildContext context) {
     return VisibilityDetector(
       key: ObjectKey(flickManager),
-      onVisibilityChanged: (visiblityInfo) {
-        if (visiblityInfo.visibleFraction > 0.9) {
+      onVisibilityChanged: (visibilityInfo) {
+        if (visibilityInfo.visibleFraction > 0.9) {
           widget.flickMultiManager.play(flickManager);
         }
       },
@@ -61,7 +60,13 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
             videoFit: BoxFit.cover,
             playerLoadingFallback: Positioned.fill(
               child: Stack(
-                children: <Widget>[
+                children:[
+                  Positioned.fill(
+                    child: Image.asset(
+                      widget.image!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                   Positioned(
                     right: 10,
                     top: 10,
@@ -85,15 +90,15 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
           flickVideoWithControlsFullscreen: FlickVideoWithControls(
             playerLoadingFallback: Center(
                 child: Image.network(
-                  widget.image!,
-                  fit: BoxFit.fitWidth,
-                )),
+              widget.image!,
+              fit: BoxFit.fitWidth,
+            )),
             controls: const FlickLandscapeControls(),
             iconThemeData: const IconThemeData(
               size: 40,
               color: Colors.white,
             ),
-            textStyle: TextStyle(fontSize: 16, color: Colors.white),
+            textStyle: const TextStyle(fontSize: 16, color: Colors.white),
           ),
         ),
       ),

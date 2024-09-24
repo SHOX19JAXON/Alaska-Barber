@@ -7,14 +7,14 @@ import '../../utils/colors/app_colors.dart';
 
 class BarberWorkDetail extends StatefulWidget {
   const BarberWorkDetail({super.key, required this.userModel});
-  final UserModel userModel;
+  final BarbersModel userModel;
 
   @override
   State<BarberWorkDetail> createState() => _BarberWorkDetailState();
 }
 
 class _BarberWorkDetailState extends State<BarberWorkDetail> {
-  int currentIndex = 0; // Tanlangan rasmni ko'rsatish uchun
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _BarberWorkDetailState extends State<BarberWorkDetail> {
               final imagePath = widget.userModel.fotos[0].image[index];
               print("Current Image Path: $imagePath");
               return ClipRRect(
-                borderRadius: BorderRadius.circular(20), // Rasmlar uchun radius
+                borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
                   imagePath,
                   fit: BoxFit.cover,
@@ -66,7 +66,7 @@ class _BarberWorkDetailState extends State<BarberWorkDetail> {
                   shape: BoxShape.circle,
                   color: currentIndex == index
                       ? AppColors.cAFECFE
-                      : Colors.grey, // Tanlangan rasm ko'k rangda
+                      : Colors.grey,
                 ),
               );
             }),

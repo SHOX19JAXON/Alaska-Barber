@@ -5,10 +5,10 @@ import 'package:provider/provider.dart';
 
 class FeedPlayerPortraitControls extends StatelessWidget {
   const FeedPlayerPortraitControls({
-    Key? key,
+    super.key,
     this.flickMultiManager,
     this.flickManager,
-  }) : super(key: key);
+  });
 
   final FlickMultiManager? flickMultiManager;
   final FlickManager? flickManager;

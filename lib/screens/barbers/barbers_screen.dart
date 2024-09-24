@@ -1,16 +1,16 @@
-import 'package:alaska_barber/data/kerakli_listlar/keralki_listlar.dart';
+import 'package:alaska_barber/data/app_lists/keralki_listlar.dart';
 import 'package:alaska_barber/screens/barbers_info/barber_info.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-class Barbers extends StatefulWidget {
-  const Barbers({super.key});
+class BarbersScreen extends StatefulWidget {
+  const BarbersScreen({super.key});
 
   @override
-  State<Barbers> createState() => _BarbersState();
+  State<BarbersScreen> createState() => _BarbersScreenState();
 }
 
-class _BarbersState extends State<Barbers> {
+class _BarbersScreenState extends State<BarbersScreen> {
   @override
   void initState() {
     super.initState();
@@ -41,7 +41,7 @@ class _BarbersState extends State<Barbers> {
           ),
         ),
         title:  Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Text(
             "Masterlar ro'yxati",
             style: Theme.of(context).textTheme.bodyLarge,
@@ -73,25 +73,25 @@ class _BarbersState extends State<Barbers> {
                     // color:Theme.of(context).cardColor,
                     // gradient: Theme.of(context).cardColor,
                     // AppColors.cAFECFE.withOpacity(0.3),
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       colors: [
                         Color(0xFF030305),
                         Color(0xFF0D0F19),
-                        Color(0xFF272827) // Bu rang `opacity` bilan.
+                        Color(0xFF272827)
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                     ),
                     border: Border.all(
-                      color: AppColors.white, // Border rangi oq
+                      color: AppColors.white,
                       width: 0.1,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.4), // Soyaning rangi
+                        color: Colors.black.withOpacity(0.4),
                         spreadRadius: 2,
                         blurRadius: 6,
-                        offset: Offset(0, 3), // Soyaning joylashuvi
+                        offset: const Offset(0, 3),
                       ),
                     ],
 
@@ -116,7 +116,7 @@ class _BarbersState extends State<Barbers> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Spacer(),
+                            const Spacer(),
                             SizedBox(
                               width: 150,
                               child: Text(
@@ -155,7 +155,7 @@ class _BarbersState extends State<Barbers> {
                               ),
                               onRatingUpdate: (rating) {},
                             ),
-                            Spacer(),
+                            const Spacer(),
                           ],
                         ),
                       ],
