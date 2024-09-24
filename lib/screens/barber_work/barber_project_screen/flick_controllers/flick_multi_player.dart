@@ -53,9 +53,11 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
         }
       },
       child: Container(
+        height: 520,
         child: FlickVideoPlayer(
           flickManager: flickManager,
           flickVideoWithControls: FlickVideoWithControls(
+            videoFit: BoxFit.cover,
             playerLoadingFallback: Positioned.fill(
               child: Stack(
                 children:[
