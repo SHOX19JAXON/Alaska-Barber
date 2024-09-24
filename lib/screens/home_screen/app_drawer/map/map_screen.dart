@@ -23,7 +23,7 @@ class MapScreen extends StatelessWidget {
                 image: BitmapDescriptor.fromAssetImage(
                   AppImages.barberLocation,
                 ),
-                scale: 2.5,
+                scale: 0.4,
               ),
             ),
           ),
