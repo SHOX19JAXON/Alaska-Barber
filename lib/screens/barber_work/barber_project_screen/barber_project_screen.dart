@@ -199,14 +199,12 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                         padding: const EdgeInsets.all(16),
                         child: SizedBox(
                           height : 520,
-                          child: SingleChildScrollView(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: FlickMultiPlayer(
-                                url: items[index]['trailer_url'],
-                                flickMultiManager: flickMultiManager,
-                                image: items[index]['image'],
-                              ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: FlickMultiPlayer(
+                              url: items[index]['trailer_url'],
+                              flickMultiManager: flickMultiManager,
+                              image: items[index]['image'],
                             ),
                           ),
                         ),
