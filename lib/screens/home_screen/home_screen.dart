@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:alaska_barber/screens/barbers/barbers_screen.dart';
 import 'package:alaska_barber/screens/home_screen/app_drawer/languages_screen/languages_screen.dart';
+import 'package:alaska_barber/screens/home_screen/app_drawer/map/map_screen.dart';
 import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:alaska_barber/utils/theme/app_theme.dart';
@@ -66,7 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 context.isDarkTheme() ? Icons.shield_moon : Icons.sunny,
                 color: context.isDarkTheme() ? Colors.yellow : Colors.blue,
               ),
-              title: Text(context.isDarkTheme() ? 'dark_mode'.tr() : 'light_mode'.tr()),
+              title: Text(
+                  context.isDarkTheme() ? 'dark_mode'.tr() : 'light_mode'.tr()),
               onTap: () {
                 // Theme switching
                 if (context.isDarkTheme()) {
@@ -80,7 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: const Icon(Icons.location_on_outlined),
               title: Text('location'.tr()),
               onTap: () {
-
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const MapScreen()));
               },
             ),
           ],
@@ -121,7 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.zero, // Container uchun paddingni olib tashlash
+                  padding: EdgeInsets.zero,
+                  // Container uchun paddingni olib tashlash
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),

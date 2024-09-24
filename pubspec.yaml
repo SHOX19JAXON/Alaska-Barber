@@ -59,6 +59,7 @@ dependencies:
   flick_video_player: ^0.9.0
   visibility_detector: ^0.4.0+2
   easy_localization: ^3.0.7
+  yandex_mapkit: ^4.1.0
 
 
 dev_dependencies:
