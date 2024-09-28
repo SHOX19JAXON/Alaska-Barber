@@ -24,7 +24,9 @@ class _BarberWorkDetailState extends State<BarberWorkDetail> {
       appBar: AppBar(
         // backgroundColor: AppColors.c1B2B2B,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title:  Text("STIL",style: Theme.of(context).textTheme.bodyLarge,),
+        title:  Text("STIL",style: TextStyle(color: Colors.red,fontSize: 21)
+        // Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
       body: Column(
         children: [

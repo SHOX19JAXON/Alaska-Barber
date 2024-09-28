@@ -1,3 +1,4 @@
+import 'package:alaska_barber/utils/colors/app_colors.dart';
 import 'package:alaska_barber/utils/images/app_images.dart';
 import 'package:flutter/material.dart';
 
@@ -10,16 +11,27 @@ class PhotoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(left: 16 , right: 16 , bottom: 16),
       decoration: BoxDecoration(
           color: const Color(0xFFF5F5F5),
-          gradient: const LinearGradient(
+          gradient: isDarkMode
+              ? const LinearGradient(
             colors: [
               Color(0xFF030305),
               Color(0xFF0D0F19),
               Color(0xFF272827)
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          )
+              : const LinearGradient(
+            colors: [
+              AppColors.c355353,
+              AppColors.c355353,
+              AppColors.c355353,
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
