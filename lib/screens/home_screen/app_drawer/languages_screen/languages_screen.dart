@@ -17,7 +17,7 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text('languages'.tr(), style: Theme.of(context).textTheme.bodyLarge),
+        title: Text('languages'.tr(), style: Theme.of(context).textTheme.bodyMedium),
         centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
@@ -43,7 +43,7 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
                 language == 1 ? Icons.check_circle : Icons.circle_outlined,
                 color: Theme.of(context).iconTheme.color,
               ),
-              title: Text('O\'zbek', style: Theme.of(context).textTheme.bodyLarge),
+              title: Text('O\'zbek', style: Theme.of(context).textTheme.bodyMedium),
             ),
             Divider(color: Theme.of(context).dividerColor),
 
@@ -64,7 +64,7 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
                 language == 2 ? Icons.check_circle : Icons.circle_outlined,
                 color: Theme.of(context).iconTheme.color,
               ),
-              title: Text('Ўзбек (Кирил)', style: Theme.of(context).textTheme.bodyLarge),
+              title: Text('Ўзбек (Кирил)', style: Theme.of(context).textTheme.bodyMedium),
             ),
             Divider(color: Theme.of(context).dividerColor),
 
@@ -85,7 +85,7 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
                 language == 3 ? Icons.check_circle : Icons.circle_outlined,
                 color: Theme.of(context).iconTheme.color,
               ),
-              title: Text('Русский', style: Theme.of(context).textTheme.bodyLarge),
+              title: Text('Русский', style: Theme.of(context).textTheme.bodyMedium),
             ),
             Divider(color: Theme.of(context).dividerColor),
 
@@ -102,7 +102,7 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
                 language == 4 ? Icons.check_circle : Icons.circle_outlined,
                 color: Theme.of(context).iconTheme.color,
               ),
-              title: Text('English', style: Theme.of(context).textTheme.bodyLarge),
+              title: Text('English', style: Theme.of(context).textTheme.bodyMedium),
             ),
             Divider(color: Theme.of(context).dividerColor),
 
@@ -123,29 +123,29 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
                 language == 5 ? Icons.check_circle : Icons.circle_outlined,
                 color: Theme.of(context).iconTheme.color,
               ),
-              title: Text('Türkçe', style: Theme.of(context).textTheme.bodyLarge),
+              title: Text('Türkçe', style: Theme.of(context).textTheme.bodyMedium),
             ),
             Divider(color: Theme.of(context).dividerColor),
 
 
-            ListTile(
-              onTap: () {
-                setState(() {
-                  language = 6;
-                });
-                context.setLocale(const Locale('tt', 'RU'));
-              },
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: Image.asset(AppImages.tojikflag,
-                    height: 25, width: 25, fit: BoxFit.cover),
-              ),
-              trailing: Icon(
-                language == 6 ? Icons.check_circle : Icons.circle_outlined,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              title: Text('Tatarça', style: Theme.of(context).textTheme.bodyLarge),
-            ),
+            // ListTile(
+            //   onTap: () {
+            //     setState(() {
+            //       language = 6;
+            //     });
+            //     context.setLocale(const Locale('tt', 'RU'));
+            //   },
+            //   leading: ClipRRect(
+            //     borderRadius: BorderRadius.circular(50),
+            //     child: Image.asset(AppImages.tojikflag,
+            //         height: 25, width: 25, fit: BoxFit.cover),
+            //   ),
+            //   trailing: Icon(
+            //     language == 6 ? Icons.check_circle : Icons.circle_outlined,
+            //     color: Theme.of(context).iconTheme.color,
+            //   ),
+            //   title: Text('Tatarça', style: Theme.of(context).textTheme.bodyMedium),
+            // ),
           ],
         ),
       ),

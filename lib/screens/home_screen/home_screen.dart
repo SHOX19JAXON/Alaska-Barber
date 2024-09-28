@@ -18,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
@@ -38,24 +39,29 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       drawer: Drawer(
+        backgroundColor :Colors.grey,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+              const DrawerHeader(
+
+        // backgroundBlendMode :Color(0xFF272827),
               decoration: BoxDecoration(
-                color: AppColors.c1B2B2B,
+        //
+                color:
+                AppColors.c1B2B2B
               ),
               child: Text(
                 'Alyaska',
                 style: TextStyle(
-                  color: AppColors.cAFECFE,
+                  color: AppColors.white,
                   fontSize: 24,
                 ),
               ),
             ),
             ListTile(
               leading: const Icon(Icons.language),
-              title: Text('select_language'.tr()),
+              title: Text('select_language'.tr(),style:  Theme.of(context).textTheme.bodyMedium,),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const LanguagesScreen();
@@ -65,10 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(
               leading: Icon(
                 context.isDarkTheme() ? Icons.shield_moon : Icons.sunny,
-                color: context.isDarkTheme() ? Colors.yellow : Colors.blue,
+                color: context.isDarkTheme() ? Colors.white : Colors.yellow,
               ),
               title: Text(
-                  context.isDarkTheme() ? 'dark_mode'.tr() : 'light_mode'.tr()),
+                  context.isDarkTheme() ? 'dark_mode'.tr() : 'light_mode'.tr(),style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 // Theme switching
                 if (context.isDarkTheme()) {
@@ -80,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.location_on_outlined),
-              title: Text('location'.tr()),
+              title: Text('location'.tr(),style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const MapScreen()));
@@ -104,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: Text(
                 "data".tr(),
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             const SizedBox(
@@ -132,7 +138,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Ink(
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
+                    gradient: isDarkMode
+                        ? const LinearGradient(
                       colors: [
                         Color(0xFF030305),
                         Color(0xFF0D0F19),
@@ -140,7 +147,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
+                    )
+                        : const LinearGradient(
+                      colors: [
+                        AppColors.c355353,
+                        AppColors.c355353,
+                        AppColors.c355353,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                     ),
+                    // color: Colors.red,
                     border: Border.all(
                       color: Colors.white,
                       width: 0.1,

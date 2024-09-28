@@ -18,7 +18,8 @@ class LightTheme {
       ),
     ),
     shadowColor: Colors.black,
-    cardColor: const Color(0xFFAFECFE).withOpacity(0.3),
+    // cardColor: const Color(0xFFAFECFE).withOpacity(0.3),
+    cardColor: AppColors.c355353,
     dividerColor: AppColors.cA0A7B1,
     textTheme:  TextTheme(
       displayLarge: TextStyle(
