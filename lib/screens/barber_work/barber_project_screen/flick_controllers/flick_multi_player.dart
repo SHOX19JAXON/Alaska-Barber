@@ -53,7 +53,7 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
         }
       },
       child: Container(
-        height: 520,
+        height: 500,
         child: FlickVideoPlayer(
           flickManager: flickManager,
           flickVideoWithControls: FlickVideoWithControls(
@@ -64,7 +64,7 @@ class _FlickMultiPlayerState extends State<FlickMultiPlayer> {
                   Positioned.fill(
                     child: Image.asset(
                       widget.image!,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                   Positioned(

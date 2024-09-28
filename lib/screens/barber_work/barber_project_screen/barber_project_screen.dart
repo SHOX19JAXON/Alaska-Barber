@@ -42,7 +42,7 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: Text("QILGAN ISHLARI",
+        title: const Text("QILGAN ISHLARI",
             style:
             TextStyle(color: Colors.black)
             // Theme.of(context).textTheme.bodyLarge
@@ -230,71 +230,94 @@ class _BarberProjectScreenState extends State<BarberProjectScreen> {
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: PageView(
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        ...List.generate(
-                          items.length,
-                              (index) {
-                            return Column(
-                              children: [
-                                Container(
-                                  height: 650,
-                                  margin: const EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: const Color(0xFFF5F5F5),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      const Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 16 , vertical: 25),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "Caskad style",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 25),
-                                            ),
-                                            Text(
-                                              "Barber : Abubakr",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 15),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      SizedBox(
-                                        height: 550,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                          BorderRadius.circular(20),
-                                          child: FlickMultiPlayer(
-                                            url: items[index]['trailer_url'],
-                                            flickMultiManager:
-                                            flickMultiManager,
-                                            image: items[index]['image'],
-                                          ),
-                                        ),
-                                      ),
+                  PageView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      ...List.generate(
+                        items.length,
+                            (index) {
+                          return Column(
+                            children: [
+                              Container(
+                                height: 650,
+                                margin: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  gradient: isDarkMode
+                                      ? const LinearGradient(
+                                    colors: [
+                                      Color(0xFF030305),
+                                      Color(0xFF0D0F19),
+                                      Color(0xFF272827)
                                     ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                  )
+                                      : const LinearGradient(
+                                    colors: [
+                                      AppColors.c355353,
+                                      AppColors.c355353,
+                                      AppColors.c355353,
+                                    ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                  ),
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 0.1,
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 50,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 16 , vertical: 15),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Caskad style",
+                                            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                                              color : Colors.white
+                                            ),),
+                                          Text(
+                                            "Barber : Abubakr",
+                                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                              color : Colors.white
+                                            ),
+                                          ),
+                                          const SizedBox(height: 10,),
+                                          Text(
+                                            "Phone : +998 99 000 90 00",
+                                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                              color : Colors.white
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    ClipRRect(
+                                      borderRadius:
+                                      BorderRadius.circular(20),
+                                      child: FlickMultiPlayer(
+                                        url: items[index]['trailer_url'],
+                                        flickMultiManager:
+                                        flickMultiManager,
+                                        image: items[index]['image'],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            );
-                          },
-                        ),
-                      ],
-                    ),
+                              ),
+                              const SizedBox(
+                                height: 50,
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ],
                   )
                 ],
               ),

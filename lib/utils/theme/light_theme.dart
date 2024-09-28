@@ -22,73 +22,73 @@ class LightTheme {
     cardColor: AppColors.c355353,
     dividerColor: AppColors.cA0A7B1,
     textTheme:  TextTheme(
-      displayLarge: TextStyle(
+      displayLarge: const TextStyle(
         fontSize: 57,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      displayMedium: TextStyle(
+      displayMedium: const TextStyle(
         fontSize: 45,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      displaySmall: TextStyle(
+      displaySmall: const TextStyle(
         fontSize: 36,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      headlineLarge: TextStyle(
+      headlineLarge: const TextStyle(
         fontSize: 32,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      headlineMedium: TextStyle(
+      headlineMedium: const  TextStyle(
         fontSize: 28,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      headlineSmall: TextStyle(
+      headlineSmall: const TextStyle(
         fontSize: 24,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      titleLarge: TextStyle(
+      titleLarge: const TextStyle(
         fontSize: 22,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      titleMedium: TextStyle(
+      titleMedium: const TextStyle(
         fontSize: 16,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      titleSmall: TextStyle(
+      titleSmall: const TextStyle(
         fontSize: 14,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w400,
       ),
-      labelLarge: TextStyle(
+      labelLarge: const TextStyle(
         fontSize: 14,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      labelMedium: TextStyle(
+      labelMedium: const TextStyle(
         fontSize: 12,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      labelSmall: TextStyle(
+      labelSmall: const TextStyle(
         fontSize: 11,
         color: Colors.black,
         fontFamily: "DM sans",
@@ -100,13 +100,13 @@ class LightTheme {
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      bodyMedium: TextStyle(
+      bodyMedium: const TextStyle(
         fontSize: 14,
         color: Colors.black,
         fontFamily: "DM sans",
         fontWeight: FontWeight.w500,
       ),
-      bodySmall: TextStyle(
+      bodySmall: const TextStyle(
         fontSize: 12,
         color: Colors.black,
         fontFamily: "DM sans",
